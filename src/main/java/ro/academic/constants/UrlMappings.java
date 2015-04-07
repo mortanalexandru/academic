@@ -11,7 +11,7 @@ public class UrlMappings {
 	/***/
 	public final static String CSS_RESOURCES_URL = "/css/**";
 	/***/
-	public final static String JS_RESOURCES_URL = "/JS/**";
+	public final static String JS_RESOURCES_URL = "/js/**";
 	/***/
 	public final static String LANDING_PAGE = "/";
 	
