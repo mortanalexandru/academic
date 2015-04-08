@@ -75,4 +75,17 @@ public class UserController {
 		return model;
 
 	}
+
+	@PreAuthorize("hasRole('STUDENT')")
+	@RequestMapping(value = UrlMappings.EDIT_PAGE, method = RequestMethod.GET)
+	public ModelAndView getEditPage() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("editAccount");
+		return model;
+
+	}
+
 }

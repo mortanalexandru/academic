@@ -16,5 +16,7 @@ public class UrlMappings {
 	public final static String LANDING_PAGE = "/";
 	
 	public final static String HOME_PAGE = "/home";
-	
+
+	public final static String EDIT_PAGE = "/edit";
+
 }

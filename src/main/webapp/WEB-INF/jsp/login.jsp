@@ -12,7 +12,7 @@
 <body>
 
 <p id="header">Hi there!</p>
-<c:url value="/login" var="loginUrl"/>
+<c:url value="login" var="loginUrl"/>
 <c:if test="${error}">
 	<div>Invalid username or password</div>
 </c:if>
