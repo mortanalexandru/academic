@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="container">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -28,7 +29,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Consult Catalogs</a></li>
+        <li><a href="${contextPath}/academic/student/catalogs">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

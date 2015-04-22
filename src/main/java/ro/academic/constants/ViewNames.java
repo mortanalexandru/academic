@@ -8,9 +8,12 @@ package ro.academic.constants;
 public enum ViewNames {
 	
 	LANDING_VIEW("teacherHome"),
-	LOGIN_VIEW("login"),
+	LOGIN_VIEW("loginView"),
 	HOME_VIEW("home"),
-	EDIT_VIEW("edit");
+	EDIT_VIEW("edit"),
+	CATALOG_VIEW("catalogView"),
+	STUDENT_VIEW("studentView"),
+	TEACHER_HOME("teacherHome");
 	
 	private ViewNames(String viewName){
 		this.setViewName(viewName);

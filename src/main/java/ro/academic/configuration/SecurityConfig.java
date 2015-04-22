@@ -20,12 +20,15 @@ import ro.academic.constants.UrlMappings;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private final String SECURED_URLS = "/home";
+	private final String SECURED_URLS = "/student";
 	
 	
     @Autowired
 	@Qualifier("userSecurityService")
 	UserDetailsService userService;
+    
+    @Autowired
+    AuthSuccessHandler authSuccess;
 	
 	/**
 	 * Configures the data source for the login information
@@ -51,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
         .formLogin()
             .loginPage(UrlMappings.LOGIN_URL)
+            .successHandler(authSuccess)
             .permitAll();
         
         
