@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
 <script src="../js/plugins/jquery-2.1.3.min.js"></script>
 <script src="../js/plugins/bootstrap.js"></script>
+<script>
+console.log("hello");
+</script>
 </head>
 
 <body>
@@ -60,52 +63,52 @@
   <div class="col-md-4">
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 1
+			<input type="checkbox" value="sem1"> Sem 1
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 2
+			<input type="checkbox" value="sem2"> Sem 2
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 3
+			<input type="checkbox" value="sem3"> Sem 3
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 4
+			<input type="checkbox" value="sem4"> Sem 4
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 5
+			<input type="checkbox" value="sem5"> Sem 5
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 6
+			<input type="checkbox" value="sem6"> Sem 6
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 7
+			<input type="checkbox" value="sem7"> Sem 7
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 8
+			<input type="checkbox" value="sem8"> Sem 8
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 9
+			<input type="checkbox" value="sem9"> Sem 9
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox"> Sem 10
+			<input type="checkbox" value="sem10"> Sem 10
 		</label>
 	</div>
   </div>
@@ -131,7 +134,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr class="sem1">
 				<td>
 					MLE5007
 				</td>
@@ -148,7 +151,7 @@
 					True
 				</td>
 			</tr>
-			<tr>
+			<tr class="sem2">
 				<td>
 					MLE5008
 				</td>
