@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.academic.access.UserDAO;
 import ro.academic.model.User;
 import ro.academic.model.UserWrapper;
+import ro.academic.service.StudentService;
 /**
  * User Service for Spring Security
  * @author Alexandru
@@ -27,6 +28,9 @@ public class UserSecurityService implements UserDetailsService {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private StudentService studentService;
 	
 	/**
 	 * Gets User by email
@@ -52,7 +56,15 @@ public class UserSecurityService implements UserDetailsService {
 	 */
 	private UserDetails buildUserForAuthentication(User user, 
 			List<GrantedAuthority> authorities) {
-			return new UserWrapper(user, true , true, true, true, authorities);
+		UserWrapper userWrapper = new UserWrapper(user, true , true, true, true, authorities);
+		int priviledge = user.getPriviledge();
+		if(priviledge == 1){
+			userWrapper.setStudent(studentService.getStudentByUser(user));
+		}else if(priviledge == 2){
+		
+		}
+		
+			return userWrapper;
 		}
 	
 	/**

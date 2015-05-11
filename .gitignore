@@ -36,3 +36,6 @@ SpringMVC/target/
 target/*
 *.iml
 /target
+
+src/main/java/ro/academic/constants/ViewNames.java.orig
+.orig
