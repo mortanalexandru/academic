@@ -7,7 +7,27 @@
 <script src="../js/plugins/jquery-2.1.3.min.js"></script>
 <script src="../js/plugins/bootstrap.js"></script>
 <script>
-console.log("hello");
+  function myFunction(checkbox) 
+  {
+    var valoare = checkbox.getAttribute("value");
+    inputs = $("input[type='checkbox']");
+    var valoare_jmekera = true;
+    $.each( inputs, function( key, value ) {
+      if(value.checked)
+      {
+        valoare_jmekera = false;
+        $("."+value.getAttribute("value")).show();
+      }
+      else
+      {
+        $("."+value.getAttribute("value")).hide();
+      }
+    });
+    if(valoare_jmekera == true)
+    {
+      $(".catalog tr").show();
+    }
+  }
 </script>
 </head>
 

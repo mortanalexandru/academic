@@ -1,33 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">s
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
-<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
-<script src="../../js/plugins/jquery-ui-1.11.3.min.js"></script>
-<script src="../../js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
+<script src="js/plugins/jquery-2.1.3.min.js"></script>
+<script src="js/plugins/bootstrap.js"></script>
 <script>
-  console.log("Plange-mi un rau");
-  function myFunction(checkbox) 
-  {
-    var valoare = checkbox.getAttribute("value");
-    inputs = $("input[type='checkbox']");
-    var valoare_jmekera = true;
-    $.each( inputs, function( key, value ) {
-      if(value.checked)
-      {
-        valoare_jmekera = false;
-        $("."+value.getAttribute("value")).show();
-      }
-      else
-      {
-        $("."+value.getAttribute("value")).hide();
-      }
-    });
-    if(valoare_jmekera == true)
-    {
-      $(".catalog tr").show();
-    }
-  }
+  // function myFunction(checkbox) 
+  // {
+  //   var valoare = checkbox.getAttribute("value");
+  //   inputs = $("input[type='checkbox']");
+  //   var valoare_jmekera = true;
+  //   $.each( inputs, function( key, value ) {
+  //     if(value.checked)
+  //     {
+  //       valoare_jmekera = false;
+  //       $("."+value.getAttribute("value")).show();
+  //     }
+  //     else
+  //     {
+  //       $("."+value.getAttribute("value")).hide();
+  //     }
+  //   });
+  //   if(valoare_jmekera == true)
+  //   {
+  //     $(".catalog tr").show();
+  //   }
+  // }
 </script>
 </head>
 
@@ -147,7 +148,5 @@
 </div>
 
 </div>
-
-
 </body>
  </html>
