@@ -51,7 +51,7 @@ public class CurriculumCourse {
 	}
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "course")
 	public Course getCourse() {
 		return course;

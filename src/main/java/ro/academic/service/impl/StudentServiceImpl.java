@@ -1,10 +1,13 @@
 package ro.academic.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ro.academic.access.StudentDAO;
 import ro.academic.adapter.StudentAdapter;
+import ro.academic.dto.ContractCourseDTO;
 import ro.academic.dto.StudentDTO;
 import ro.academic.model.Student;
 import ro.academic.model.User;
@@ -28,5 +31,8 @@ public class StudentServiceImpl implements StudentService {
 		return StudentAdapter.adaptStudentToStudentDTO(student);
 	}
 	
+
+
+
 
 }

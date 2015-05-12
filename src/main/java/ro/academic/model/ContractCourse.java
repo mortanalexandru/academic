@@ -18,6 +18,8 @@ public class ContractCourse {
 	
 	private Student student;
 	
+	private int grade;
+	
 	@Id
 	@Column(name = "idCurriculum_Course_Student", unique = true, nullable = false, length = 11)
 	public int getId() {
@@ -28,7 +30,7 @@ public class ContractCourse {
 		this.id = id;
 	}
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "curriculumCourse")
 	public CurriculumCourse getCourse() {
 		return course;
@@ -48,5 +50,17 @@ public class ContractCourse {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+
+	@Column(name = "grade", unique = false, 
+			nullable = false, length = 11)
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	
+	
 	
 }

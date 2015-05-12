@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ro.academic.access.StudentDAO;
+import ro.academic.model.ContractCourse;
+import ro.academic.model.CurriculumCourse;
 import ro.academic.model.Faculty;
 import ro.academic.model.Student;
 import ro.academic.model.User;
@@ -46,5 +48,7 @@ public class StudentDAOImpl implements StudentDAO {
 		session.close();
 		return resultAsList.get(0);
 	}
+
+
 	
 }

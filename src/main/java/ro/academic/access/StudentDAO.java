@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import ro.academic.model.ContractCourse;
 import ro.academic.model.Student;
 import ro.academic.model.User;
 
@@ -24,6 +25,7 @@ public interface StudentDAO {
 	 * Gets Student for a given user
 	 * @return
 	 */
-	public Student getStudentByUser(User username);
+	public Student getStudentByUser(User user);
+	
 
 }

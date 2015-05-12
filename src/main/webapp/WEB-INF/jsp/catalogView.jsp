@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">s
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
-<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
-<script src="../../js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
+<script src="../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="../js/plugins/bootstrap.js"></script>
 <script>
   function myFunction(checkbox) 
   {
@@ -151,43 +153,42 @@
 				<th>
 					Passed
 				</th>
+				<th>
+					Teacher
+				</th>
+				<th>
+					Type
+				</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="sem1">
-				<td>
-					MLE5007
-				</td>
-				<td>
-					Operating systems
-				</td>
-				<td>
-					10
-				</td>
-				<td>
-					5
-				</td>
-				<td>
-					True
-				</td>
-			</tr>
-			<tr class="sem2">
-				<td>
-					MLE5008
-				</td>
-				<td>
-					Geometry
-				</td>
-				<td>
-					8
-				</td>
-				<td>
-					6
-				</td>
-				<td>
-					True
-				</td>
-			</tr>
+		<c:forEach var="course" items="${courses}">
+						<tr class="sem${course.semester}">
+							<td>${course.code}</td>
+							<td>${course.name}</td>
+							<td>${course.grade}</td>
+							<td>${course.credits}</td>
+							<td>
+							<c:choose>
+										<c:when test="${course.passed}">
+       PASSED
+    </c:when>
+										<c:otherwise>
+     	FAILED
+    </c:otherwise>
+									</c:choose>
+							</td>
+							<td>${course.teacher}</td>
+							<td><c:choose>
+										<c:when test="${course.optional}">
+       Optional
+    </c:when>
+										<c:otherwise>
+     	Mandatory
+    </c:otherwise>
+									</c:choose></td>				
+						</tr>
+				</c:forEach>
 		</tbody>
 		</table>
   </div>

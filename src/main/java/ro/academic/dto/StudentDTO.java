@@ -1,6 +1,9 @@
 package ro.academic.dto;
 
 
+import java.io.Serializable;
+import java.util.List;
+
 import ro.academic.model.User;
 
 /**
@@ -8,7 +11,12 @@ import ro.academic.model.User;
  * @author Alexandru
  *
  */
-public class StudentDTO {
+public class StudentDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	
@@ -22,7 +30,7 @@ public class StudentDTO {
 	
 	private String department;
 	
-
+	private List<ContractCourseDTO> courses;
 
 	public String getName() {
 		return name;
@@ -70,6 +78,14 @@ public class StudentDTO {
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	public List<ContractCourseDTO> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<ContractCourseDTO> courses) {
+		this.courses = courses;
 	}
 
 }

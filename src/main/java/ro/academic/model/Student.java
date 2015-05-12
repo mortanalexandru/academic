@@ -68,7 +68,7 @@ public class Student {
 		this.user = user;
 	}
 
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY) 
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
 	public Set<ContractCourse> getSelectedCourses() {
 		return selectedCourses;
 	}

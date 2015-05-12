@@ -1,7 +1,10 @@
 package ro.academic.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import ro.academic.dto.ContractCourseDTO;
 import ro.academic.dto.StudentDTO;
 import ro.academic.model.User;
 
@@ -18,4 +21,7 @@ public interface StudentService {
 	 * @return
 	 */
 	public StudentDTO getStudentByUser(User user);
+	
+	
+	
 }
