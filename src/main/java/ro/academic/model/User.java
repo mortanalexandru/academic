@@ -73,6 +73,21 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+	    if (obj == null) {
+	        return false;
+	    }
+	    if (getClass() != obj.getClass()) {
+	        return false;
+	    }
+	    
+	    final User other = (User) obj;
+	    if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
+	        return false;
+	    }
+	    return true;
+	}
 
 
 }

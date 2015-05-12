@@ -10,7 +10,7 @@ import ro.academic.model.User;
 public interface UserDAO {
 	
 	/**
-	 * 
+	 * Gets user by username
 	 * @param email
 	 * @return
 	 */

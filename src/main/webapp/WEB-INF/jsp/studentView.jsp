@@ -29,7 +29,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="${contextPath}/academic/student/catalogs">Consult Catalogs</a></li>
+        <li><a href="${contextPath}/academic/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -59,16 +59,16 @@
 </nav>
 
 <div class="text-center">
-	<h2>${username}</h2>
+	<h2>${student.name}</h2>
 	<br>
 	<div class="row">
 		<div class="col-md-5 col-md-offset-3">
 		<div class="row">
 		<div class="col-md-4" >
-			<p style="float:right;"> Faculty: </p>
+			<p style="float:right;"> Department: </p>
 		</div>
 		<div class="col-md-8">
-			<p style="float:left;"><i> Facultatea de Matematica si Informatica </i></p>
+			<p style="float:left;"><i> ${student.department} </i></p>
 		</div>
 		</div>
 		<div class="row">
@@ -76,7 +76,7 @@
 			<p style="float:right;"> Section: </p>
 		</div>
 		<div class="col-md-8">
-			<p style="float:left;"><i> Informatica-engleza </i></p>
+			<p style="float:left;"><i> ${student.specialization} </i></p>
 		</div>
 		</div>
 		<div class="row">
@@ -100,7 +100,7 @@
 			<p style="float:right;"> Group: </p>
 		</div>
 		<div class="col-md-8">
-			<p style="float:left;"><i> 923 </i></p>
+			<p style="float:left;"><i> ${student.group} </i></p>
 		</div>
 		</div>
 		<div class="row">

@@ -5,6 +5,8 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import ro.academic.dto.StudentDTO;
+
 /**
  * Entity to bo stored on session
  * @author Alexandru 
@@ -18,6 +20,9 @@ public class UserWrapper implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	
 	private User user;
+	
+	private StudentDTO student;
+
 	
 	private Collection<? extends GrantedAuthority> authorities;
 	private boolean accountNonExpired;
@@ -73,5 +78,20 @@ public class UserWrapper implements UserDetails {
 	public boolean isEnabled() {
 		return enabled;
 	}
+	
+	public User getUser(){
+		return this.user;
+	}
+
+
+	public StudentDTO getStudent() {
+		return student;
+	}
+
+
+	public void setStudent(StudentDTO student) {
+		this.student = student;
+	}
+
 
 }

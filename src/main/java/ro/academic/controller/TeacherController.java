@@ -1,5 +1,6 @@
 package ro.academic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
 import ro.academic.model.UserWrapper;
+import ro.academic.service.DepartmentServiceImpl;
 
 @Controller
 public class TeacherController {
@@ -23,7 +25,6 @@ public class TeacherController {
 	public ModelAndView getHomePage() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
-		
 		ModelAndView model = new ModelAndView();
 		model.setViewName(ViewNames.TEACHER_HOME.getViewName());
 		model.addObject("username", userDetail.getUsername());

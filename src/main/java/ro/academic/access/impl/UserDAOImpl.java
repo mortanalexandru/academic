@@ -1,4 +1,4 @@
-package ro.academic.impl;
+package ro.academic.access.impl;
 
 import java.util.List;
 
@@ -25,6 +25,7 @@ public class UserDAOImpl implements UserDAO {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public User getUserByUsername(String username) {
 		final Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
 		   User result = null;

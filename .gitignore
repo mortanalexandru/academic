@@ -15,5 +15,11 @@ SpringMVC/target/
 target/*
 *.iml
 /target
+<<<<<<< HEAD
 tomcat.8080/
 pom.xml
+=======
+
+src/main/java/ro/academic/constants/ViewNames.java.orig
+.orig
+>>>>>>> c5e2f14acc8a79a0bfab87dc50bba7cbda0fbb7d
