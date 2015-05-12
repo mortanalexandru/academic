@@ -4,20 +4,23 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
-<script src="js/plugins/jquery-2.1.3.min.js"></script>
-<script src="js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
+<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="../../js/plugins/bootstrap.js"></script>
 <script>
   $( document ).ready(function() {
     $('#final_optional').css({'min-height': "100px"});
+    $('.submit_button').click( function(){
+      var ids = [];
+      var list = $("#final_optional li").each(function(i,e) {
+        ids.push($(e).data("course-id")); 
+      });
+      console.log("We will send the objects", ids);
+      // this we will make the ajax call with the ids
+    });
     $('#final_optional, #available_optional').sortable({
-      connectWith: ".sortable-list",
-      dropOnEmpty: true,
-      update: function(e, ui) {
-        // reset group positions
-        var list = $("#final_optional li")
-        console.log("We will send the objects", list);
-      }
+      connectWith: ".sortable-list"
     });
   });
 </script>
@@ -73,68 +76,16 @@
 </nav>
 
 <div class="row">
-  <div class="col-md-3 text-center">
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 1
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 2
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 3
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 4
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 5
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 6
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 7
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 8
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 9
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Sem 10
-    </label>
-  </div>
-  </div>
   
-  <div class="col-md-9">
+  <div class="col-md-12">
   <div class="col-md-6">
     <h3> Available optional courses </h3>
     <ul id="available_optional" class="list-group sortable-list">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item" data-course-id="1">Cras justo odio</li>
+      <li class="list-group-item" data-course-id="2">Dapibus ac facilisis in</li>
+      <li class="list-group-item" data-course-id="3">Morbi leo risus</li>
+      <li class="list-group-item" data-course-id="4">Porta ac consectetur ac</li>
+      <li class="list-group-item" data-course-id="5">Vestibulum at eros</li>
     </ul>
   </div>
   
@@ -147,8 +98,8 @@
 
   
   <div class="col-xs-12 text-center">
-    <button type="button" class="btn btn-primary">Submit</button>
-    <button type="button" class="btn btn-default"> Cancel</button>
+    <button type="button" class="btn btn-primary submit_button">Submit</button>
+    <button type="button" class="btn btn-default "> Cancel</button>
   </div>
   </div>
 

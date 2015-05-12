@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">s
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
-<script src="../js/plugins/jquery-2.1.3.min.js"></script>
-<script src="../js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
+<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="../../js/plugins/bootstrap.js"></script>
 <script>
   function myFunction(checkbox) 
   {
@@ -49,12 +49,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">About me <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="#">Consult Catalogs</a></li>
+        <li><a href="${contextPath}/student/">About me <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">See Contracts</a></li>
+            <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
             <li><a href="#">Optional Courses</a></li>
           </ul>
         </li>
@@ -69,7 +69,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Edit Account</a></li>
+            <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
 			<li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>
@@ -83,57 +83,57 @@
   <div class="col-md-4">
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem1"> Sem 1
+			<input type="checkbox" value="sem1" onclick="myFunction(this)"> Sem 1
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem2"> Sem 2
+			<input type="checkbox" value="sem2" onclick="myFunction(this)"> Sem 2
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem3"> Sem 3
+			<input type="checkbox" value="sem3" onclick="myFunction(this)"> Sem 3
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem4"> Sem 4
+			<input type="checkbox" value="sem4" onclick="myFunction(this)"> Sem 4
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem5"> Sem 5
+			<input type="checkbox" value="sem5" onclick="myFunction(this)"> Sem 5
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem6"> Sem 6
+			<input type="checkbox" value="sem6" onclick="myFunction(this)"> Sem 6
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem7"> Sem 7
+			<input type="checkbox" value="sem7" onclick="myFunction(this)"> Sem 7
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem8"> Sem 8
+			<input type="checkbox" value="sem8" onclick="myFunction(this)"> Sem 8
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem9"> Sem 9
+			<input type="checkbox" value="sem9" onclick="myFunction(this)"> Sem 9
 		</label>
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="sem10"> Sem 10
+			<input type="checkbox" value="sem10" onclick="myFunction(this)"> Sem 10
 		</label>
 	</div>
   </div>
   <div class="col-md-8">
-		<table class="table table-striped">
+		<table class="table table-striped" >
 		<thead>
 			<tr>
 				<th>

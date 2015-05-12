@@ -59,4 +59,23 @@ public class UserController {
 
 	}
 
+	@RequestMapping(value = UrlMappings.STUDENT_CONTRACTS, method = RequestMethod.GET)
+	public ModelAndView contracts() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("student_contracts");
+		return model;
+	}
+
+	@RequestMapping(value = UrlMappings.STUDENT_OPTIONAL_COURSES, method = RequestMethod.GET)
+	public ModelAndView optional_courses() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("student_optional_courses");
+		return model;
+	}
 }

@@ -4,9 +4,9 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
-<script src="js/plugins/jquery-2.1.3.min.js"></script>
-<script src="js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
+<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="../../js/plugins/bootstrap.js"></script>
 </head>
 
 <body>
@@ -28,13 +28,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="${contextPath}/academic/student/catalog">Consult Catalogs</a></li>
+        <li class="active"><a href="student/">About me <span class="sr-only">(current)</span></a></li>
+        <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">See Contracts</a></li>
-            <li><a href="#">Optional Courses</a></li>
+            <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
+            <li><a href="${contextPath}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>
       </ul>
@@ -48,7 +48,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="edit">Edit Account</a></li>
+            <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
 			<li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>
