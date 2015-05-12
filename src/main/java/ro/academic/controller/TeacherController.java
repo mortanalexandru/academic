@@ -11,11 +11,20 @@ import org.springframework.web.servlet.ModelAndView;
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
 import ro.academic.model.UserWrapper;
-import ro.academic.service.DepartmentServiceImpl;
+import ro.academic.service.CurriculumCoursesService;
+import ro.academic.service.TeacherService;
+import ro.academic.service.impl.DepartmentServiceImpl;
+import ro.academic.service.impl.TeacherServiceImpl;
+
+
 
 @Controller
 public class TeacherController {
-
+	@Autowired
+	private TeacherService teachService;
+	
+	@Autowired
+	private CurriculumCoursesService ccService;
 	
 	/**
 	 * Default Get method
@@ -27,7 +36,13 @@ public class TeacherController {
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
 		ModelAndView model = new ModelAndView();
 		model.setViewName(ViewNames.TEACHER_HOME.getViewName());
+		
 		model.addObject("username", userDetail.getUsername());
+		model.addObject("teacher", userDetail.getTeacher());
+		
+		ccService.getCCByTeacher(userDetail.getUser());
+		
+		
 		return model;
 	}
 }

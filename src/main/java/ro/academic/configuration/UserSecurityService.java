@@ -18,6 +18,7 @@ import ro.academic.access.UserDAO;
 import ro.academic.model.User;
 import ro.academic.model.UserWrapper;
 import ro.academic.service.StudentService;
+import ro.academic.service.TeacherService;
 /**
  * User Service for Spring Security
  * @author Alexandru
@@ -31,6 +32,9 @@ public class UserSecurityService implements UserDetailsService {
 	
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private TeacherService teacherService;
 	
 	/**
 	 * Gets User by email
@@ -59,9 +63,13 @@ public class UserSecurityService implements UserDetailsService {
 		UserWrapper userWrapper = new UserWrapper(user, true , true, true, true, authorities);
 		int priviledge = user.getPriviledge();
 		if(priviledge == 1){
-			userWrapper.setStudent(studentService.getStudentByUser(user));
+			userWrapper.setTeacher(teacherService.getTeacherByUser(user));
 		}else if(priviledge == 2){
-		
+			//THIS IS THE SAME AS STUDENT MODIFY IT
+			userWrapper.setStudent(studentService.getStudentByUser(user));
+		}else if(priviledge == 3)
+		{
+			userWrapper.setStudent(studentService.getStudentByUser(user));
 		}
 		
 			return userWrapper;
@@ -77,9 +85,9 @@ public class UserSecurityService implements UserDetailsService {
 		
 			Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 	 
-			if(priviledge == 1){
+			if(priviledge == 3){
 				setAuths.add(new SimpleGrantedAuthority("STUDENT"));
-			}else if(priviledge == 2){
+			}else if(priviledge == 1){
 				setAuths.add(new SimpleGrantedAuthority("TEACHER"));
 			}
 			

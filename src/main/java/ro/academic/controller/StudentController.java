@@ -14,8 +14,8 @@ import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
 import ro.academic.dto.StudentDTO;
 import ro.academic.model.UserWrapper;
-import ro.academic.service.DepartmentServiceImpl;
 import ro.academic.service.StudentService;
+import ro.academic.service.impl.DepartmentServiceImpl;
 
 @Controller
 public class StudentController {

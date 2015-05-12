@@ -5,11 +5,15 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import ro.academic.access.CurriculumCoursesDAO;
+import ro.academic.model.ContractCourse;
 import ro.academic.model.Course;
 import ro.academic.model.CurriculumCourse;
+import ro.academic.model.User;
 
 /**
  * Curriculum Course DAO implementation
@@ -17,7 +21,7 @@ import ro.academic.model.CurriculumCourse;
  *
  */
 @Repository
-public class CurriculumCoursesDAOImpl {
+public class CurriculumCoursesDAOImpl implements CurriculumCoursesDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -33,5 +37,20 @@ public class CurriculumCoursesDAOImpl {
 		session.getTransaction().commit();
 		session.close();
 		return resultAsList;
+	}
+	
+	public List<CurriculumCourse> getCurriculumCoursesByTeacher(User user)
+	{
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		
+		final Criteria criteria = session.createCriteria(CurriculumCourse.class,"contract");
+		criteria.createAlias("contract.teacher", "teacher"); // inner join by default
+		criteria.add(Restrictions.eq("teacher.user", user));
+		List<CurriculumCourse> resultAsList = (List<CurriculumCourse>) (criteria.list());
+		return resultAsList;
+		
+		
 	}
 }

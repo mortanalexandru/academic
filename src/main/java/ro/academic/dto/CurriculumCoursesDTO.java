@@ -1,0 +1,37 @@
+package ro.academic.dto;
+
+import ro.academic.model.Curriculum;
+
+public class CurriculumCoursesDTO {
+	
+	private String courseCode;
+	
+	private String name;
+	
+	private int credits;
+
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getCredits() {
+		return credits;
+	}
+
+	public void setCredits(int credits) {
+		this.credits = credits;
+	}
+	
+}

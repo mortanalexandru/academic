@@ -27,5 +27,6 @@ public class StudentServiceImpl implements StudentService {
 		Student student = studentDao.getStudentByUser(user);
 		return StudentAdapter.adaptStudentToStudentDTO(student);
 	}
+	
 
 }

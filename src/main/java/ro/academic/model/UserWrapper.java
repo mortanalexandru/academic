@@ -5,7 +5,9 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import ro.academic.dto.CurriculumCoursesDTO;
 import ro.academic.dto.StudentDTO;
+import ro.academic.dto.TeacherDTO;
 
 /**
  * Entity to bo stored on session
@@ -22,6 +24,8 @@ public class UserWrapper implements UserDetails {
 	private User user;
 	
 	private StudentDTO student;
+	
+	private TeacherDTO teacher;
 
 	
 	private Collection<? extends GrantedAuthority> authorities;
@@ -87,10 +91,21 @@ public class UserWrapper implements UserDetails {
 	public StudentDTO getStudent() {
 		return student;
 	}
+	
+	public TeacherDTO getTeacher()
+	{
+		return teacher;
+	}
+	
 
 
 	public void setStudent(StudentDTO student) {
 		this.student = student;
+	}
+	
+	public void setTeacher(TeacherDTO teacher)
+	{
+		this.teacher = teacher;
 	}
 
 
