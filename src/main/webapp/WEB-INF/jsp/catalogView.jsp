@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">s
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
@@ -25,6 +25,7 @@
         $("."+value.getAttribute("value")).hide();
       }
     });
+    console.log(valoare_jmekera);
     if(valoare_jmekera == true)
     {
       $(".catalog tr").show();
@@ -35,7 +36,7 @@
 
 <body>
 <div class="container">
-  <nav class="navbar navbar-default">
+ <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -51,13 +52,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="${contextPath}/student/">About me <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
+        <li class="active"><a href="${contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
+        <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
-            <li><a href="#">Optional Courses</a></li>
+            <li><a href="${contextPath}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>
       </ul>
@@ -69,10 +70,10 @@
       </form-->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
-			<li class="divider"></li>
+      <li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>
         </li>
@@ -161,7 +162,7 @@
 				</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="catalog">
 		<c:forEach var="course" items="${courses}">
 						<tr class="sem${course.semester}">
 							<td>${course.code}</td>

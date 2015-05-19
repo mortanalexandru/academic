@@ -45,13 +45,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Consult Catalogs</a></li>
-        <li class="active dropdown">
+        <li class="active"><a href="${contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
+        <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">See Contracts</a></li>
-            <li class="active"><a href="#">Optional Courses</a></li>
+            <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
+            <li><a href="${contextPath}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>
       </ul>
@@ -61,11 +61,11 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form-->
-      <ul class="nav navbar-nav navbar-right">
+     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Edit Account</a></li>
+            <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
       <li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>

@@ -22,6 +22,7 @@ public class CurriculumCoursesAdapter {
 		curriculumDto.setCourseCode(course.getCode());
 		curriculumDto.setCredits(course.getCredits());
 		curriculumDto.setName(course.getName());
+		curriculumDto.setSemester(cc.getSemester());
 		
 		return curriculumDto;
 	}

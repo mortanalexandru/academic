@@ -28,7 +28,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="student/">About me <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="student">About me <span class="sr-only">(current)</span></a></li>
         <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
@@ -46,7 +46,7 @@
       </form-->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
 			<li class="divider"></li>
@@ -77,22 +77,6 @@
 		</div>
 		<div class="col-md-8">
 			<p style="float:left;"><i> ${student.specialization} </i></p>
-		</div>
-		</div>
-		<div class="row">
-		<div class="col-md-4 " >
-			<p style="float:right;"> CNP: </p>
-		</div>
-		<div class="col-md-8">
-			<p style="float:left;"><i> 2940312244490 </i></p>
-		</div>
-		</div>
-		<div class="row">
-		<div class="col-md-4 " >
-			<p style="float:right;"> "Matricol" number: </p>
-		</div>
-		<div class="col-md-8">
-			<p style="float:left;"><i> 1637 </i></p>
 		</div>
 		</div>
 		<div class="row">

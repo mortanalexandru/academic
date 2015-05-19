@@ -1,7 +1,3 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +28,6 @@
   }
 </script>
 </head>
-
 <body>
 <div class="container">
   <nav class="navbar navbar-default">
@@ -52,8 +47,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ><a href="${contextPath}/teacher">About me <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="${contextPath}/teacher/courses">Manage courses</a></li>
-        <li ><a href="${contextPath}/teacher/propose_courses">Propose courses</a></li>
+        <li ><a href="${contextPath}/teacher/courses">Manage courses</a></li>
+        <li class="active"><a href="${contextPath}/teacher/propose_courses">Propose courses</a></li>
       </ul>
       <!--form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -74,97 +69,77 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<div class="row">
-  <div class="col-md-3 text-center">
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem1" onclick="myFunction(this)"> Sem 1
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem2" onclick="myFunction(this)"> Sem 2
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem3" onclick="myFunction(this)"> Sem 3
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem4" onclick="myFunction(this)"> Sem 4
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem5" onclick="myFunction(this)"> Sem 5
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem6" onclick="myFunction(this)"> Sem 6
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem7" onclick="myFunction(this)"> Sem 7
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem8" onclick="myFunction(this)"> Sem 8
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem9" onclick="myFunction(this)"> Sem 9
-    </label>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="sem10" onclick="myFunction(this)"> Sem 10
-    </label>
-  </div>
-  </div>
-  <div class="col-md-9">
-    <table class="table">
+<div>
+  <h3> Grades - Course ${code}, Semester ${semester} </h3>
+  <table class="table">
     <thead>
       <tr>
         <th>
-          Course code
+          Crt. no.
         </th>
         <th>
-          Name
+          Student Name
         </th>
         <th>
-          ECTS
+          Group
         </th>
-        <th> 
-
+        <th>
+          Grade
         </th>
       </tr>
     </thead>
     <tbody class='catalog'>
-      <c:forEach var="course" items="${courses}">
-        <tr class="sem${course.semester}">
-          <td>${course.courseCode}</td>
-          <td>${course.name}</td>
-          <td>${course.credits}</td>
-          <td>
-          <a href="${contextPath}/course?code=${course.courseCode}&semester=${course.semester}" class="btn btn-primary btn-sm">View</a>        
+      <tr >
+        <td>
+          1
         </td>
-        </tr>
-      </c:forEach>
+        <td>
+          Suba Renata
+        </td>
+        <td>
+          923
+        </td>
+        <td>
+          <input type="text" name="grade_suba"/>  
+        </td>
+        
+      </tr>
+      <tr >
+        <td>
+          2
+        </td>
+        <td>
+          Toma Ovidiu
+        </td>
+        <td>
+          923
+        </td>
+        <td>
+          <input type="text" name="grade_toma"/> 
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          Virtan Mara
+        </td>
+        
+        <td>
+          923
+        </td>
+        <td>
+          <input type="text" name="grade_virtan"/> 
+        </td>        
+      
     </tbody>
-  </div>
+    </table>
+    <div class="text-center">
+      <button type="submit" class="btn btn-default btn-primary" >Save</button>
+      <button type="button" class="btn btn-default">Cancel</button>
+    </div>
 </div>
-
-
-
 </div>
-
-
 </body>
  </html>

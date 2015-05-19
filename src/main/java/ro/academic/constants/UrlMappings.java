@@ -21,10 +21,21 @@ public class UrlMappings {
 
 	public final static String TEACHER_HOME = "/teacher";
 
+	public final static String TEACHER_MANAGE_COURSES = "/teacher/courses";
+
+	public final static String TEACHER_PROPOSE_COURSES = "/teacher/propose_courses";
+
 	public final static String EDIT_PAGE = "/student/editAccount";
 
 	public final static String STUDENT_CONTRACTS = "/student/contracts";
 
 	public final static String STUDENT_OPTIONAL_COURSES = "/student/optional_courses";
+
+	public final static String GET_COURSE = "/course";
+	
+
+
+
+
 
 }

@@ -13,7 +13,10 @@ public enum ViewNames {
 	EDIT_VIEW("edit"),
 	CATALOG_VIEW("catalogView"),
 	STUDENT_VIEW("studentView"),
-	TEACHER_HOME("teacherHome");
+	TEACHER_HOME("teacherHome"),
+	TEACHER_MANAGE_COURSES("teacher_catalogView"),
+	TEACHER_PROPOSE_COURSES("teacher_proposeCourses"),
+	GET_COURSE("courseView");
 	
 	private ViewNames(String viewName){
 		this.setViewName(viewName);

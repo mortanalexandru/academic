@@ -27,13 +27,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="${contextPath}/student/">About me <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="${contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
         <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
-            <li><a href="#">Optional Courses</a></li>
+            <li><a href="${contextPath}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>
       </ul>
@@ -45,10 +45,10 @@
       </form-->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
-			<li class="divider"></li>
+      <li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>
         </li>
@@ -61,9 +61,9 @@
   <div class="col-md-6 col-md-offset-3">
   <form class="form-horizontal" style="padding-top:50px;">
   <div class="form-group">
-    <label for="exampleInputEmail1" class="col-md-4 control-label">Username</label>
+    <label for="name" class="col-md-4 control-label">name</label>
 	<div class="col-md-8">
-		<input type="text" class="form-control" id="exampleInputEmail1" value="toie1637" disabled="disabled">
+		<input type="text" class="form-control" id="exampleInputEmail1" value="${student.name}" disabled="disabled">
 	</div>
   </div>
   <div class="form-group">

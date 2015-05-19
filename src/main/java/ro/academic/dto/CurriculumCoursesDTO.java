@@ -9,6 +9,8 @@ public class CurriculumCoursesDTO {
 	private String name;
 	
 	private int credits;
+	
+	private int semester;
 
 	public String getCourseCode() {
 		return courseCode;
@@ -32,6 +34,14 @@ public class CurriculumCoursesDTO {
 
 	public void setCredits(int credits) {
 		this.credits = credits;
+	}
+
+	public int getSemester() {
+		return semester;
+	}
+
+	public void setSemester(int semester) {
+		this.semester = semester;
 	}
 	
 }

@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
-<script src="js/plugins/jquery-2.1.3.min.js"></script>
-<script src="js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
+<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="../../js/plugins/bootstrap.js"></script>
 <title>Home</title>
 </head>
 <body>
@@ -27,9 +27,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="${contextPath}/teacher">About me <span class="sr-only">(current)</span></a></li>
+        <li ><a href="${contextPath}/teacher">About me <span class="sr-only">(current)</span></a></li>
         <li ><a href="${contextPath}/teacher/courses">Manage courses</a></li>
-        <li ><a href="${contextPath}/teacher/propose_courses">Propose courses</a></li>
+        <li class="active"><a href="${contextPath}/teacher/propose_courses">Propose courses</a></li>
       </ul>
       <!--form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -50,6 +50,34 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-</body>
+
+
+  <div class="col-md-6 col-md-offset-3">
+  <form class="form-horizontal" style="padding-top:50px;">
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="col-md-4 control-label">Course name</label>
+  <div class="col-md-8">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Course name">
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="col-md-4 control-label">Semester</label>
+  <div class="col-md-8">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Semester">
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="col-md-4 control-label">Description</label>
+  <div class="col-md-8">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description">
+  </div>
+  </div>
+  <div class="text-center">
+  <button type="submit" class="btn btn-default btn-primary" >Save</button>
+  <button class="btn btn-default">Cancel</button>
+  </div>
+  </div>
+</form>
+
 </body>
 </html>

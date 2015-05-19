@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ro.academic.constants.ModelAttribute;
 
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
 import ro.academic.model.UserWrapper;
-import ro.academic.service.impl.DepartmentServiceImpl;
 
 /**
  * User Controller
@@ -52,8 +52,9 @@ public class UserController {
 	public ModelAndView getEditPage() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
-		
+
 		ModelAndView model = new ModelAndView();
+		model.addObject(ModelAttribute.STUDENT, userDetail.getStudent());
 		model.setViewName("editAccount");
 		return model;
 

@@ -18,7 +18,6 @@ import ro.academic.dto.ContractCourseDTO;
 import ro.academic.dto.StudentDTO;
 import ro.academic.model.UserWrapper;
 import ro.academic.service.StudentService;
-import ro.academic.service.impl.DepartmentServiceImpl;
 
 @Controller
 public class StudentController {
