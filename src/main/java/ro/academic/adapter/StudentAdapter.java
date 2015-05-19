@@ -68,4 +68,5 @@ public class StudentAdapter {
 		contractCourse.setOptional(courseInfo.isIsOptional());
 		return contractCourse;
 	};
+	
 }

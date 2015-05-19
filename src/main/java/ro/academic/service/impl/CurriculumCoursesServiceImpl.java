@@ -9,6 +9,7 @@ import ro.academic.access.CurriculumCoursesDAO;
 import ro.academic.adapter.CurriculumCoursesAdapter;
 import ro.academic.adapter.TeacherAdapter;
 import ro.academic.dto.CurriculumCoursesDTO;
+import ro.academic.dto.StudentDTO;
 import ro.academic.dto.TeacherDTO;
 import ro.academic.model.CurriculumCourse;
 import ro.academic.model.Teacher;
@@ -25,6 +26,12 @@ public class CurriculumCoursesServiceImpl implements CurriculumCoursesService {
 		List<CurriculumCourse> cc = ccDAO.getCurriculumCoursesByTeacher(user);
 		return CurriculumCoursesAdapter.adaptCurriculumCourseListToDTO(cc);
 		
+	}
+	
+	public List<StudentDTO> getStudentsByCC(String code)
+	{
+		List<CurriculumCourse> cc = ccDAO.getStudentsByCurriculumCourses(code);
+		return CurriculumCoursesAdapter.adaptCurriculumCourseListToStudentDTO(cc);
 	}
 
 

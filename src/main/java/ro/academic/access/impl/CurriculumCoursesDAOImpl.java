@@ -13,6 +13,7 @@ import ro.academic.access.CurriculumCoursesDAO;
 import ro.academic.model.ContractCourse;
 import ro.academic.model.Course;
 import ro.academic.model.CurriculumCourse;
+import ro.academic.model.Student;
 import ro.academic.model.User;
 
 /**
@@ -51,6 +52,19 @@ public class CurriculumCoursesDAOImpl implements CurriculumCoursesDAO {
 		List<CurriculumCourse> resultAsList = (List<CurriculumCourse>) (criteria.list());
 		return resultAsList;
 		
+		
+	}
+	public List<CurriculumCourse> getStudentsByCurriculumCourses(String code)
+	{
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		final Criteria criteria = session.createCriteria(CurriculumCourse.class, "curriculum");
+		criteria.createAlias("curriculum.course", "course");
+		criteria.add(Restrictions.eq("course.code", code));
+		List<CurriculumCourse> result = (List<CurriculumCourse>) (criteria.list());
+		
+		return result;
 		
 	}
 }

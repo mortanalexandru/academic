@@ -5,15 +5,21 @@ import java.util.List;
 import java.util.Set;
 
 import ro.academic.dto.CurriculumCoursesDTO;
+import ro.academic.dto.StudentDTO;
+import ro.academic.model.ContractCourse;
 import ro.academic.model.Course;
 import ro.academic.model.Curriculum;
 import ro.academic.model.CurriculumCourse;
+import ro.academic.model.Student;
 import ro.academic.model.Teacher;
 
 public class CurriculumCoursesAdapter {
 	/**
 	AdaptCurriculumCoursesToCurriculumCoursesDTO
 	**/
+	
+	
+	
 	public static CurriculumCoursesDTO adaptCCtoCCDTO(CurriculumCourse cc)
 	{
 		CurriculumCoursesDTO curriculumDto = new CurriculumCoursesDTO();
@@ -34,5 +40,21 @@ public class CurriculumCoursesAdapter {
 		}
 		return coursesDto;
 	};
+	
+	public static List<StudentDTO> adaptCurriculumCourseListToStudentDTO(List<CurriculumCourse> courses)
+	{
+		StudentAdapter studentAdapter = new StudentAdapter();
+		ArrayList<StudentDTO> studentsDTO = new ArrayList<StudentDTO>();
+		
+		for(CurriculumCourse course : courses)
+		{
+			for(ContractCourse contract : course.getContractedCourses())
+			{
+				
+				studentsDTO.add(studentAdapter.adaptStudentToStudentDTO(contract.getStudent()));
+			}
+		}
+		return studentsDTO;
+	}
 	
 }
