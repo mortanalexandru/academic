@@ -4,10 +4,10 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.css">
-<script src="../../js/plugins/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
+<script src="js/plugins/jquery-2.1.3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="../../js/plugins/bootstrap.js"></script>
+<script src="js/plugins/bootstrap.js"></script>
 <script>
   $( document ).ready(function() {
     $('#final_optional').css({'min-height': "100px"});

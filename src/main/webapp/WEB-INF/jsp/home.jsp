@@ -7,6 +7,7 @@
 <title>Home</title>
 </head>
 <body>
+<jsp:include page="..." 
 <p>Hello</p>
 </body>
 </html>
