@@ -18,9 +18,9 @@ public class Curriculum {
 
 	private int id;
 	
-	private int startYear;
+	private int startSem;
 	
-	private int endYear;
+	private int endSem;
 	
 	private Specialization specialization;
 	
@@ -39,22 +39,22 @@ public class Curriculum {
 		this.id = id;
 	}
 
-	@Column(name = "startYear", length = 11)
+	@Column(name = "startSem", length = 11)
 	public int getStartYear() {
-		return startYear;
+		return startSem;
 	}
 
 	public void setStartYear(int startYear) {
-		this.startYear = startYear;
+		this.startSem = startYear;
 	}
 
-	@Column(name = "endYear", length = 11)
+	@Column(name = "endSem", length = 11)
 	public int getEndYear() {
-		return endYear;
+		return endSem;
 	}
 
 	public void setEndYear(int endYear) {
-		this.endYear = endYear;
+		this.endSem = endYear;
 	}
 
     @ManyToOne

@@ -55,4 +55,15 @@ public class StudentController {
 		return model;
 
 	}
+	
+	@RequestMapping(value = UrlMappings.STUDENT_OPTIONAL_COURSES, method = RequestMethod.GET)
+	public ModelAndView optional_courses() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("student_optional_courses");
+		model.addObject("courses", studentService.getCoursesForGroup(userDetail.getStudent().getGroup()));
+		return model;
+	}
+	
 }

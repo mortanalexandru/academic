@@ -5,10 +5,15 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import ro.academic.access.CurriculumDAO;
 import ro.academic.model.Curriculum;
+import ro.academic.model.CurriculumCourse;
+import ro.academic.model.Group;
 import ro.academic.model.Specialization;
 
 /**
@@ -17,7 +22,7 @@ import ro.academic.model.Specialization;
  *
  */
 @Repository
-public class CurriculumDAOImpl {
+public class CurriculumDAOImpl implements CurriculumDAO {
 
 	
 	@Autowired
@@ -34,5 +39,18 @@ public class CurriculumDAOImpl {
 		session.getTransaction().commit();
 		session.close();
 		return resultAsList;
+	}
+	
+	public Curriculum getCurriculumForGroup(int group){
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		
+		final Criteria criteria = session.createCriteria(Group.class,"group");
+		criteria.add(Restrictions.eq("group.name", group));
+		criteria.setProjection(Projections.property("curriculum"));
+		List<Curriculum> resultAsList = (List<Curriculum>) (criteria.list());
+		return resultAsList.get(0);
+		
 	}
 }

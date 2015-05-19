@@ -23,6 +23,8 @@ public class Group {
 	private Curriculum curriculum;
 	
 	private Set<Student> students;
+	
+	private int semester;
 
 	@Id
 	@Column(name = "group_id", unique = true, nullable = false, length = 11)
@@ -60,6 +62,15 @@ public class Group {
 
 	public void setStudents(Set<Student> students) {
 		this.students = students;
+	}
+
+	@Column(name = "semester", length = 11)
+	public int getSemester() {
+		return semester;
+	}
+
+	public void setSemester(int semester) {
+		this.semester = semester;
 	}
 	
 	

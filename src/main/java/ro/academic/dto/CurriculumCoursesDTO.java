@@ -10,6 +10,8 @@ public class CurriculumCoursesDTO {
 	
 	private int credits;
 	
+	private boolean optional;
+	
 	private int semester;
 
 	public String getCourseCode() {
@@ -42,6 +44,14 @@ public class CurriculumCoursesDTO {
 
 	public void setSemester(int semester) {
 		this.semester = semester;
+	}
+
+	public boolean isOptional() {
+		return optional;
+	}
+
+	public void setOptional(boolean optional) {
+		this.optional = optional;
 	}
 	
 }

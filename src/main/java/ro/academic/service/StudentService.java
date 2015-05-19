@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import ro.academic.dto.ContractCourseDTO;
+import ro.academic.dto.CurriculumCoursesDTO;
 import ro.academic.dto.StudentDTO;
 import ro.academic.model.User;
 
@@ -23,5 +24,6 @@ public interface StudentService {
 	public StudentDTO getStudentByUser(User user);
 	
 	
+	public List<CurriculumCoursesDTO> getCoursesForGroup(int group);
 	
 }
