@@ -62,14 +62,12 @@ public class UserSecurityService implements UserDetailsService {
 			List<GrantedAuthority> authorities) {
 		UserWrapper userWrapper = new UserWrapper(user, true , true, true, true, authorities);
 		int priviledge = user.getPriviledge();
-		if(priviledge == 1){
-			userWrapper.setTeacher(teacherService.getTeacherByUser(user));
-		}else if(priviledge == 2){
-			//THIS IS THE SAME AS STUDENT MODIFY IT
+		if(priviledge == 3){
 			userWrapper.setStudent(studentService.getStudentByUser(user));
-		}else if(priviledge == 3)
+		}
+		else 
 		{
-			userWrapper.setStudent(studentService.getStudentByUser(user));
+			userWrapper.setTeacher(teacherService.getTeacherByUser(user));
 		}
 		
 			return userWrapper;
@@ -87,7 +85,7 @@ public class UserSecurityService implements UserDetailsService {
 	 
 			if(priviledge == 3){
 				setAuths.add(new SimpleGrantedAuthority("STUDENT"));
-			}else if(priviledge == 1){
+			}else {
 				setAuths.add(new SimpleGrantedAuthority("TEACHER"));
 			}
 			

@@ -19,12 +19,23 @@
       });
       console.log("We will send the objects", ids);
       // this we will make the ajax call with the ids
+      var token = $("input[name='_csrf']").val();
+      var header = "X-CSRF-TOKEN";
       $.ajax({
         type: "POST",
-        url: url,
-        dataType: "json",
-        data: ids
-      });
+        url: $('#postURL').val(),
+        data: JSON.stringify(ids),    
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader(header, token);
+        },
+        success: function(url) {
+		
+        }
+    });
+      
+      
     });
     $('#final_optional, #available_optional').sortable({
       connectWith: ".sortable-list"
@@ -61,6 +72,7 @@
           </ul>
         </li>
       </ul>
+      <input id="postURL" class="hidden" value="${contextPath}/academic/student/save_optional"></input>
      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
@@ -123,7 +135,7 @@
     <button type="button" class="btn btn-default "> Cancel</button>
   </div>
 </div>
-
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </div>
 </body>
  </html>
