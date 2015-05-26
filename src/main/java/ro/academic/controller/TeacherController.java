@@ -35,7 +35,10 @@ public class TeacherController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
 		ModelAndView model = new ModelAndView();
-		model.setViewName(ViewNames.TEACHER_HOME.getViewName());
+		if(userDetail.getTeacher().getDegree() == 2)
+			model.setViewName(ViewNames.CHIEF_HOME.getViewName());
+		else
+			model.setViewName(ViewNames.TEACHER_HOME.getViewName());
 		
 		model.addObject("username", userDetail.getUsername());
 		model.addObject("teacher", userDetail.getTeacher());
@@ -82,7 +85,7 @@ public class TeacherController {
 		model.addObject("semester", semester);
 		model.addObject("username", userDetail.getUsername());
 		model.addObject("teacher", userDetail.getTeacher());
-		//model.addObject("students", ccService.getStudentsByCC(code);
+		model.addObject("students", ccService.getStudentsByCC(code));
 		
 		
 

@@ -16,7 +16,8 @@ public enum ViewNames {
 	TEACHER_HOME("teacherHome"),
 	TEACHER_MANAGE_COURSES("teacher_catalogView"),
 	TEACHER_PROPOSE_COURSES("teacher_proposeCourses"),
-	GET_COURSE("courseView");
+	GET_COURSE("courseView"),
+	CHIEF_HOME("chiefHome");
 	
 	private ViewNames(String viewName){
 		this.setViewName(viewName);

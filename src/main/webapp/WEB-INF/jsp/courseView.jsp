@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,50 +93,14 @@
       </tr>
     </thead>
     <tbody class='catalog'>
-      <tr >
-        <td>
-          1
-        </td>
-        <td>
-          Suba Renata
-        </td>
-        <td>
-          923
-        </td>
-        <td>
-          <input type="text" name="grade_suba"/>  
-        </td>
-        
-      </tr>
-      <tr >
-        <td>
-          2
-        </td>
-        <td>
-          Toma Ovidiu
-        </td>
-        <td>
-          923
-        </td>
-        <td>
-          <input type="text" name="grade_toma"/> 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          Virtan Mara
-        </td>
-        
-        <td>
-          923
-        </td>
-        <td>
-          <input type="text" name="grade_virtan"/> 
-        </td>        
-      
+      <c:forEach var="student" items="${students}">
+        <tr>
+          <td>1</td>
+          <td>${student.name}</td>
+          <td>${student.group}</td>
+          <td><input type="text" name="${student.getUser().getUsername()}"/> </td>
+        </tr>
+      </c:forEach>
     </tbody>
     </table>
     <div class="text-center">

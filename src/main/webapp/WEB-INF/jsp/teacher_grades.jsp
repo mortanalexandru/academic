@@ -93,51 +93,15 @@
         </th>
       </tr>
     </thead>
-    <tbody class='catalog'>
-      <tr >
-        <td>
-          1
-        </td>
-        <td>
-          Suba Renata
-        </td>
-        <td>
-          923
-        </td>
-        <td>
-          <input type="text" name="grade_suba"/>  
-        </td>
-        
-      </tr>
-      <tr >
-        <td>
-          2
-        </td>
-        <td>
-          Toma Ovidiu
-        </td>
-        <td>
-          923
-        </td>
-        <td>
-          <input type="text" name="grade_toma"/> 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          Virtan Mara
-        </td>
-        
-        <td>
-          923
-        </td>
-        <td>
-          <input type="text" name="grade_virtan"/> 
-        </td>        
-      
+    <tbody>
+      <c:forEach var="student" items="${students}">
+        <tr class="sem${course.semester}">
+          <td>1</td>
+          <td>${student.name}</td>
+          <td>${studnet.group}</td>
+          <td><input type="text" name="#{student.name}"/> </td>
+        </tr>
+      </c:forEach>
     </tbody>
     </table>
 
