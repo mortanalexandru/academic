@@ -82,12 +82,14 @@ public class TeacherController {
 		model.addObject("semester", semester);
 		model.addObject("username", userDetail.getUsername());
 		model.addObject("teacher", userDetail.getTeacher());
-		//model.addObject("students", ccService.getStudentsByCC(code);
+		model.addObject("students", ccService.getStudentsByCC(code));
 		
 		
 
 		return model;
 	}
+	
+
 
 
 }

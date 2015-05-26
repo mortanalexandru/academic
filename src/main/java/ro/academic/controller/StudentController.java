@@ -7,8 +7,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ro.academic.constants.ModelAttribute;
@@ -64,6 +66,16 @@ public class StudentController {
 		model.setViewName("student_optional_courses");
 		model.addObject("courses", studentService.getCoursesForGroup(userDetail.getStudent().getGroup()));
 		return model;
+	}
+	
+	@RequestMapping(value = UrlMappings.SAVE_COURSES, method = RequestMethod.POST)
+	public String saveCourses(@RequestBody String[] courses){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		ModelAndView model = new ModelAndView();
+		studentService.saveContractCoursesForStudent(userDetail.getStudent().getGroup(), userDetail.getUser(), courses);
+		return "/student/catalog";
+		
 	}
 	
 }

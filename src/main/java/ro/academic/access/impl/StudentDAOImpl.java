@@ -49,6 +49,18 @@ public class StudentDAOImpl implements StudentDAO {
 		return resultAsList.get(0);
 	}
 
+	@Override
+	public void saveCourses(List<ContractCourse> courses) {
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		for(ContractCourse course : courses){
+			session.save(course);
+		}
+		session.getTransaction().commit();
+		session.close();
+	}
+
 
 	
 }

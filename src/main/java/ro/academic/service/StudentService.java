@@ -26,4 +26,5 @@ public interface StudentService {
 	
 	public List<CurriculumCoursesDTO> getCoursesForGroup(int group);
 	
+	public void saveContractCoursesForStudent(int group, User user, String[] courses);
 }

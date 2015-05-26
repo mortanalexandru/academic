@@ -27,5 +27,7 @@ public interface StudentDAO {
 	 */
 	public Student getStudentByUser(User user);
 	
+	
+	public void saveCourses(List<ContractCourse> courses);
 
 }
