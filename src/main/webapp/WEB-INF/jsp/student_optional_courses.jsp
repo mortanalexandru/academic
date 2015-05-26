@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
-<script src="js/plugins/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
+<script src="../js/plugins/jquery-2.1.3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="js/plugins/bootstrap.js"></script>
+<script src="../js/plugins/bootstrap.js"></script>
 <script>
   $( document ).ready(function() {
     $('#final_optional').css({'min-height': "100px"});
@@ -18,6 +19,12 @@
       });
       console.log("We will send the objects", ids);
       // this we will make the ajax call with the ids
+      $.ajax({
+        type: "POST",
+        url: url,
+        dataType: "json",
+        data: ids
+      });
     });
     $('#final_optional, #available_optional').sortable({
       connectWith: ".sortable-list"
@@ -27,7 +34,6 @@
 </head>
 
 <body>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="container">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -45,27 +51,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="${contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
-        <li class="dropdown">
+        <li><a href="${pageContext.request.contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
+        <li><a href="${pageContext.request.contextPath}/student/catalog">Consult Catalogs</a></li>
+        <li class="dropdown active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
-            <li><a href="${contextPath}/student/optional_courses">Optional Courses</a></li>
+            <li><a href="${pageContext.request.contextPath}/student/contracts">See Contracts</a></li>
+            <li><a href="${pageContext.request.contextPath}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>
       </ul>
-      <!--form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form-->
      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="${contextPath}/student/editAccount">Edit Account</a></li>
+            <li><a href="${pageContext.request.contextPath}/student/editAccount">Edit Account</a></li>
       <li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>
@@ -81,11 +81,9 @@
   <div class="col-md-6">
     <h3> Available optional courses </h3>
     <ul id="available_optional" class="list-group sortable-list">
-      <li class="list-group-item" data-course-id="1">Cras justo odio</li>
-      <li class="list-group-item" data-course-id="2">Dapibus ac facilisis in</li>
-      <li class="list-group-item" data-course-id="3">Morbi leo risus</li>
-      <li class="list-group-item" data-course-id="4">Porta ac consectetur ac</li>
-      <li class="list-group-item" data-course-id="5">Vestibulum at eros</li>
+      <c:forEach var="course" items="${courses}">
+        <li class="list-group-item" data-course-id="${course.courseCode}">${course.name}</li>
+      </c:forEach>
     </ul>
   </div>
   

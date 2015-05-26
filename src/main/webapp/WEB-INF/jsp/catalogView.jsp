@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">s
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
-<script src="js/plugins/jquery-2.1.3.min.js"></script>
-<script src="js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
+<script src="../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="../js/plugins/bootstrap.js"></script>
 <script>
   function myFunction(checkbox) 
   {
@@ -51,8 +50,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="${contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
+        <li><a href="${contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="${contextPath}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
