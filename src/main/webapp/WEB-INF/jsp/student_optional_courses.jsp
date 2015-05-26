@@ -75,6 +75,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+
 <div class="row">
   
   <div class="col-md-12">
@@ -82,7 +83,11 @@
     <h3> Available optional courses </h3>
     <ul id="available_optional" class="list-group sortable-list">
       <c:forEach var="course" items="${courses}">
-        <li class="list-group-item" data-course-id="${course.courseCode}">${course.name}</li>
+        <c:choose>
+          <c:when test="${course.optional}">
+           <li class="list-group-item" data-course-id="${course.courseCode}">${course.name}</li>
+          </c:when>
+        </c:choose>
       </c:forEach>
     </ul>
   </div>
@@ -92,16 +97,33 @@
     <ul id="final_optional" class="list-group sortable-list">
     </ul>
   </div>
+</div>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <h2 class="text-center">
+          Obligatory courses
+      </h2>
+    <ul class="list-group">
+      <c:forEach var="course" items="${courses}">
+        <c:choose>
+          <c:when test="${course.optional == false}">
+            <li class="list-group-item" data-course-id="${course.courseCode}">${course.name}</li>
+          </c:when>
+        </c:choose>
+      </c:forEach>
+    <ul>
+  </div>
+</div>
 
+<div class= "row">
   
   <div class="col-xs-12 text-center">
     <button type="button" class="btn btn-primary submit_button">Submit</button>
     <button type="button" class="btn btn-default "> Cancel</button>
   </div>
-  </div>
-
 </div>
+
 </div>
 </body>
  </html>
