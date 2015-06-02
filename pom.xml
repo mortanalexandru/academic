@@ -7,7 +7,6 @@
     <groupId>ro.academic</groupId>
     <artifactId>academic</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
     <name>Academic</name>
     <url>http://maven.apache.org</url>
 
@@ -16,9 +15,40 @@
         <spring.security.version>3.2.5.RELEASE</spring.security.version>
         <jackson.version>1.9.13</jackson.version>
         <hibernate.version>4.2.11.Final</hibernate.version>
+        <tomcat.version>7.0.57</tomcat.version>
     </properties>
 
     <dependencies>
+        <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-logging-juli</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper-el</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -56,11 +86,11 @@
         </dependency>
 
         <!-- Hibernate resources -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
@@ -175,12 +205,34 @@
                 </configuration>
             </plugin>
             <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <assembleDirectory>target</assembleDirectory>
+                    <programs>
+                        <program>
+                            <mainClass>ro.academic.launch.Main</mainClass>
+                            <name>webapp</name>
+                        </program>
+                    </programs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

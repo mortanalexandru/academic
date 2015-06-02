@@ -29,8 +29,15 @@ public class StudentDTO implements Serializable {
 	private String specialization;
 	
 	private String department;
+
+	private String id;
 	
 	private List<ContractCourseDTO> courses;
+
+	public String getId()
+	{
+		return id;
+	}
 
 	public String getName() {
 		return name;

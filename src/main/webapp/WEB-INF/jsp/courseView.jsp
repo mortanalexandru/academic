@@ -30,6 +30,32 @@
       $(".catalog tr").show();
     }
   }
+  $( document ).ready(function() {
+    $('.submit_button').click( function(){
+      var ids = new Array;
+      var list = $("input[data-input-type='grade']").each(function(i,e) {
+        ids[$(e).attr("name")] = $(e).val();
+      });
+
+      var token = $("input[name='_csrf']").val();
+      var header = "X-CSRF-TOKEN";
+      console.log("We will send the objects", ids);
+      $.ajax({
+        type: "POST",
+        url: "teacher/save_grades",
+        data: JSON.stringify(ids),
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader(header, token);
+        },
+        success: function(url) {
+    
+        }
+      });
+    });
+  });
+
 </script>
 </head>
 <body>
@@ -98,13 +124,13 @@
           <td>1</td>
           <td>${student.name}</td>
           <td>${student.group}</td>
-          <td><input type="text" name="${student.getUser().getUsername()}"/> </td>
+          <td><input type="text" name="${student.getUser().getUsername()}" data-input-type="grade"/> </td>
         </tr>
       </c:forEach>
     </tbody>
     </table>
     <div class="text-center">
-      <button type="submit" class="btn btn-default btn-primary" >Save</button>
+      <button type="submit" class="btn btn-default btn-primary submit_button" >Save</button>
       <button type="button" class="btn btn-default">Cancel</button>
     </div>
 </div>

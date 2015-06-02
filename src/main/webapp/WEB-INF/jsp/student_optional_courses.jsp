@@ -27,8 +27,7 @@
       $.ajax({
         type: "POST",
         url: $('#postURL').val(),
-        data: JSON.stringify(ids),
-        dataType: "script",   
+        data: JSON.stringify(ids) 
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
