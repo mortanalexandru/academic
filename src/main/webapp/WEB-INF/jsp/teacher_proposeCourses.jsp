@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css">
-<script src="/js/plugins/jquery-2.1.3.min.js"></script>
-<script src="/js/plugins/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.css">
+<script src="../js/plugins/jquery-2.1.3.min.js"></script>
+<script src="../js/plugins/bootstrap.js"></script>
 <script>
  $( document ).ready(function() {
     $('.submit_button').click( function(){
-      var ids = new Array;
+      var ids = {};
       var list = $("input.form-control").each(function(i,e) {
         ids[$(e).attr("id")] = $(e).val();
       });
@@ -22,6 +22,7 @@
         type: "POST",
         url: "propose_courses",
         data: JSON.stringify(ids),
+        
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
@@ -102,6 +103,12 @@
   <div class="text-center">
   <a class="btn btn-default btn-primary submit_button" >Save</a>
   <a class="btn btn-default">Cancel</a>
+  </div>
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1" class="col-md-4 control-label">Course Code</label>
+  <div class="col-md-8">
+    <input type="text" class="form-control" id="code" placeholder="Course Code">
   </div>
   </div>
 </form>

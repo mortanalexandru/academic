@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
+import ro.academic.model.OptionalCourse;
 import ro.academic.model.UserWrapper;
 import ro.academic.service.CurriculumCoursesService;
 import ro.academic.service.TeacherService;
@@ -84,11 +85,12 @@ public class TeacherController {
 	}
 
 	@RequestMapping(value = UrlMappings.TEACHER_POST_PROPOSE_COURSES, method = RequestMethod.POST)
-	public String postProposeCourses(@RequestBody String[] courses){
+	public String postProposeCourses(@RequestBody OptionalCourse course){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
 		ModelAndView model = new ModelAndView();
-
+		
+		ccService.saveProposedCourses(course, userDetail.getUser());
 		return "/student/catalog";
 		
 	}
