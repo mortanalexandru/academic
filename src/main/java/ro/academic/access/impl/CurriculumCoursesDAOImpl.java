@@ -64,4 +64,14 @@ public class CurriculumCoursesDAOImpl implements CurriculumCoursesDAO {
 		return result;
 		
 	}
+	
+	public void saveCurriculumCourse(CurriculumCourse course){
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(course);
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+	
 }

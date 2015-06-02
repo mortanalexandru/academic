@@ -53,4 +53,17 @@ public class CurriculumDAOImpl implements CurriculumDAO {
 		return resultAsList.get(0);
 		
 	}
+	
+	public Curriculum getCurriculumForSemester(int semester){
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		
+		final Criteria criteria = session.createCriteria(Curriculum.class);
+		criteria.add(Restrictions.eq("startSem", semester));
+		criteria.setProjection(Projections.property("curriculum"));
+		List<Curriculum> resultAsList = (List<Curriculum>) (criteria.list());
+		return resultAsList.get(0);
+	}
+	
 }

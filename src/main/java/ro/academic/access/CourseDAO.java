@@ -8,4 +8,7 @@ public interface CourseDAO {
 
 	public List<Course> getCourses();
 	
+	public Course getCourseByCode(String code);
+	
+	public void deleteCourse(Course course);
 }
