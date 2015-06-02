@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
 
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
@@ -125,9 +126,9 @@ public class TeacherController {
 	
 
 	@RequestMapping(value = UrlMappings.APPROVE_COURSES, method = RequestMethod.POST)
-	public String approveCourses(Map<String,Boolean> courses){
+	public String approveCourses(Model model,@RequestBody Map<String,Boolean> courses){
 		ccService.approveCourses(courses);
-		return "";
+		return "/student/catalog";
 	}
 
 

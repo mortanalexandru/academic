@@ -50,6 +50,8 @@ public class CurriculumDAOImpl implements CurriculumDAO {
 		criteria.add(Restrictions.eq("group.name", group));
 		criteria.setProjection(Projections.property("curriculum"));
 		List<Curriculum> resultAsList = (List<Curriculum>) (criteria.list());
+		session.getTransaction().commit();
+		session.close();
 		return resultAsList.get(0);
 		
 	}
@@ -61,8 +63,10 @@ public class CurriculumDAOImpl implements CurriculumDAO {
 		
 		final Criteria criteria = session.createCriteria(Curriculum.class);
 		criteria.add(Restrictions.eq("startSem", semester));
-		criteria.setProjection(Projections.property("curriculum"));
 		List<Curriculum> resultAsList = (List<Curriculum>) (criteria.list());
+
+		session.getTransaction().commit();
+		session.close();
 		return resultAsList.get(0);
 	}
 	

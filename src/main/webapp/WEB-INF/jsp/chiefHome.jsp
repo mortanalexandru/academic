@@ -32,7 +32,7 @@ $( document ).ready(function() {
     }
   }
    $('.submit_button').click( function(){
-      var ids = [];
+      var ids = {};
       var list = $("select").each(function(i,e) {
         if($(e).val())
         {
@@ -54,7 +54,7 @@ $( document ).ready(function() {
             xhr.setRequestHeader(header, token);
         },
         success: function(url) {
-          window.location = "aprove_courses";
+          window.location = "teacher";
         }
     });
       
@@ -101,6 +101,7 @@ $( document ).ready(function() {
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 <div class="row">
   <div class="col-md-3 text-center" >
   <div class="checkbox">
