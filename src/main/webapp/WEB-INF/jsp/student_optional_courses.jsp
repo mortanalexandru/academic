@@ -26,15 +26,15 @@
       console.log("We will send the objects", ids);
       $.ajax({
         type: "POST",
-        url: $('#postURL').val(),
-        data: JSON.stringify(ids) 
+        url: $('#postURL').val()+"/save_optional",
+        data: JSON.stringify(ids),
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader(header, token);
         },
         success: function(url) {
-		
+        	window.location = $('#postURL').val()+"/catalog";
         }
     });
       
@@ -76,7 +76,7 @@
           </ul>
         </li>
       </ul>
-      <input id="postURL" class="hidden" value="${baseURL}student/save_optional"></input>
+      <input id="postURL" class="hidden" value="${baseURL}/student"></input>
      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
