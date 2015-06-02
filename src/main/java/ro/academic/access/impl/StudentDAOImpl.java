@@ -21,8 +21,8 @@ public class StudentDAOImpl implements StudentDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public List<Student> getStudents(){
+
+	public List<Student> getStudents() {
 		final Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
@@ -43,7 +43,22 @@ public class StudentDAOImpl implements StudentDAO {
 		final Criteria criteria = session.createCriteria(Student.class);
 		criteria.add(Restrictions.eq("user", user));
 		List<Student> resultAsList = (List<Student>) (criteria.list());
-		
+
+		session.getTransaction().commit();
+		session.close();
+		return resultAsList.get(0);
+	}
+
+	@Override
+	public Student getStudentByUsername(String user) {
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		final Criteria criteria = session.createCriteria(Student.class,"student");
+		criteria.createAlias("student.user", "user"); // inner join by default
+		criteria.add(Restrictions.eq("user.username", user));
+		List<Student> resultAsList = (List<Student>) (criteria.list());
+
 		session.getTransaction().commit();
 		session.close();
 		return resultAsList.get(0);
@@ -54,13 +69,23 @@ public class StudentDAOImpl implements StudentDAO {
 		final Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		for(ContractCourse course : courses){
+		for (ContractCourse course : courses) {
 			session.save(course);
 		}
 		session.getTransaction().commit();
 		session.close();
 	}
 
+	@Override
+	public void saveGrades(List<ContractCourse> cc) {
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
 
-	
+		for (ContractCourse course : cc) {
+			session.update(course);
+		}
+		session.getTransaction().commit();
+		session.close();
+	}
+
 }

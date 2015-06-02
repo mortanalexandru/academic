@@ -29,5 +29,7 @@ public interface StudentDAO {
 	
 	
 	public void saveCourses(List<ContractCourse> courses);
+	public Student getStudentByUsername(String user);
+	public void saveGrades(List<ContractCourse> students);
 
 }

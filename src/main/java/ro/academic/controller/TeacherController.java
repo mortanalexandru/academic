@@ -1,5 +1,8 @@
 package ro.academic.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
 import ro.academic.model.OptionalCourse;
+import ro.academic.model.User;
 import ro.academic.model.UserWrapper;
 import ro.academic.service.CurriculumCoursesService;
 import ro.academic.service.TeacherService;
@@ -94,6 +98,19 @@ public class TeacherController {
 		return "/student/catalog";
 		
 	}
+	
+
+	@RequestMapping(value = UrlMappings.SAVE_GRADES, method = RequestMethod.POST)
+	public String saveGrades(@RequestBody Map<String, String> gradesAndUser){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		ModelAndView model = new ModelAndView();
+		teachService.saveGrades(gradesAndUser);
+		
+		return "/student/catalog";
+		
+	}
+	
 	@RequestMapping(value = UrlMappings.GET_COURSE, method = RequestMethod.GET)
 	public ModelAndView getCourse(@RequestParam(value = "code", required = true) String code, @RequestParam(value = "semester", required = true) int semester ) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -112,15 +129,6 @@ public class TeacherController {
 	}
 
 
-	@RequestMapping(value = UrlMappings.SAVE_GRADES, method = RequestMethod.POST)
-	public String saveGrades(@RequestBody String[] grades){
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
-		ModelAndView model = new ModelAndView();
-
-		return "/student/catalog";
-		
-	}
 
 
 

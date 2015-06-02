@@ -32,10 +32,16 @@
   }
   $( document ).ready(function() {
     $('.submit_button').click( function(){
-      var ids = new Array;
+      var ids = {};
+      var courseCode = $("input[name='courseCode']").val();
+      ids["courseCode"] = courseCode;
       var list = $("input[data-input-type='grade']").each(function(i,e) {
-        ids[$(e).attr("name")] = $(e).val();
+    	if($(e).val()!="")
+    	{
+        	ids[$(e).attr("name")] = $(e).val();
+    	}
       });
+      
 
       var token = $("input[name='_csrf']").val();
       var header = "X-CSRF-TOKEN";
@@ -100,6 +106,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+<input type="hidden" name="courseCode" value="${code}" />
 <div>
   <h3> Grades - Course ${code}, Semester ${semester} </h3>
   <table class="table">

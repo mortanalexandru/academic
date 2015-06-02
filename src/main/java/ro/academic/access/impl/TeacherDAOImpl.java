@@ -45,4 +45,9 @@ public class TeacherDAOImpl implements TeacherDAO {
 		session.close();
 		return resultAsList.get(0);
 	}
+	
+	public void saveGrades(User user, int grade)
+	{
+		
+	}
 }
