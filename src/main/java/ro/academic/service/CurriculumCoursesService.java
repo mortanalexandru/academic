@@ -9,6 +9,7 @@ import ro.academic.model.User;
 
 public interface CurriculumCoursesService {
 	public List<CurriculumCoursesDTO> getCCByTeacher(User user);
+  public List<CurriculumCoursesDTO> getAllCC();
 	public List<StudentDTO> getStudentsByCC(String code);
 	
 }

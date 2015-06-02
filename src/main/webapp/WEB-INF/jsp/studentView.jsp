@@ -33,7 +33,6 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="${contextPath}/student/contracts">See Contracts</a></li>
             <li><a href="${contextPath}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>

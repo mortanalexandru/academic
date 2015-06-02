@@ -45,10 +45,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Manage courses</a></li>
-    <li><a href="#">Propose courses</a></li>
-    <li class="active"><a href="#">Accept optional courses</a></li>
+        <li class="active"><a href="#">Accept optional courses</a></li>
       </ul>
       <!--form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -58,7 +55,7 @@
       </form-->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">toie1637 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${teacher.name} <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Edit Account</a></li>
       <li class="divider"></li>
@@ -159,6 +156,7 @@
         </td>
         <td>
         <select class="form-control">
+          <option value="" disabled selected>Select your option</option>
           <option value="true">Accepted</option>
           <option value="false">Rejected</option>
       </select>
@@ -179,6 +177,7 @@
         </td>
         <td>
       <select class="form-control">
+        <option value="" disabled selected>Select your option</option>
         <option value="true">Accepted</option>
         <option value="false">Rejected</option>
       </select>
@@ -199,6 +198,7 @@
         </td>
         <td>
       <select class="form-control">
+        <option value="" disabled selected>Select your option</option>
         <option value="true">Accepted</option>
         <option value="false">Rejected</option>
       </select>

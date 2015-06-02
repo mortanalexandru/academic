@@ -32,11 +32,8 @@ public class CurriculumCoursesDAOImpl implements CurriculumCoursesDAO {
 		session.beginTransaction();
 
 		final Criteria criteria = session.createCriteria(CurriculumCourse.class);
-
 		List<CurriculumCourse> resultAsList = (List<CurriculumCourse>) (criteria.list());
 
-		session.getTransaction().commit();
-		session.close();
 		return resultAsList;
 	}
 	

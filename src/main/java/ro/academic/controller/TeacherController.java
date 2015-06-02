@@ -18,6 +18,7 @@ import ro.academic.service.impl.TeacherServiceImpl;
 
 
 
+
 @Controller
 public class TeacherController {
 	@Autowired
@@ -25,6 +26,7 @@ public class TeacherController {
 	
 	@Autowired
 	private CurriculumCoursesService ccService;
+
 	
 	/**
 	 * Default Get method
@@ -36,9 +38,14 @@ public class TeacherController {
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
 		ModelAndView model = new ModelAndView();
 		if(userDetail.getTeacher().getDegree() == 2)
+		{
+			// courseDAO.getCourses();
 			model.setViewName(ViewNames.CHIEF_HOME.getViewName());
+		}
 		else
+		{
 			model.setViewName(ViewNames.TEACHER_HOME.getViewName());
+		}
 		
 		model.addObject("username", userDetail.getUsername());
 		model.addObject("teacher", userDetail.getTeacher());
@@ -74,6 +81,20 @@ public class TeacherController {
 		ccService.getCCByTeacher(userDetail.getUser());
 		return model;
 	}
+
+	// @RequestMapping(value = UrlMappings.TEACHER_PROPOSE_COURSES, method = RequestMethod.POST)
+	// public ModelAndView postProposeCourses() {
+	// 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	// 	UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+	// 	ModelAndView model = new ModelAndView();
+	// 	model.setViewName(ViewNames.TEACHER_PROPOSE_COURSES.getViewName());
+		
+	// 	model.addObject("username", userDetail.getUsername());
+	// 	model.addObject("teacher", userDetail.getTeacher());
+		
+	// 	ccService.getCCByTeacher(userDetail.getUser());
+	// 	return model;
+	// }
 
 	@RequestMapping(value = UrlMappings.GET_COURSE, method = RequestMethod.GET)
 	public ModelAndView getCourse(@RequestParam(value = "code", required = true) String code, @RequestParam(value = "semester", required = true) int semester ) {

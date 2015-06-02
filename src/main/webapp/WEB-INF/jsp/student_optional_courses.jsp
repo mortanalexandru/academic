@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <head>
@@ -17,14 +19,16 @@
       var list = $("#final_optional li").each(function(i,e) {
         ids.push($(e).data("course-id")); 
       });
-      console.log("We will send the objects", ids);
+  
       // this we will make the ajax call with the ids
       var token = $("input[name='_csrf']").val();
       var header = "X-CSRF-TOKEN";
+      console.log("We will send the objects", ids);
       $.ajax({
         type: "POST",
         url: $('#postURL').val(),
-        data: JSON.stringify(ids),    
+        data: JSON.stringify(ids),
+        dataType: "script",   
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
@@ -45,6 +49,8 @@
 </head>
 
 <body>
+<c:set var="baseURL" value="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, pageContext.request.contextPath)}" />
+
 <div class="container">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -62,22 +68,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="${pageContext.request.contextPath}/student">About me <span class="sr-only">(current)</span></a></li>
-        <li><a href="${pageContext.request.contextPath}/student/catalog">Consult Catalogs</a></li>
+        <li><a href="${baseURL}/student">About me <span class="sr-only">(current)</span></a></li>
+        <li><a href="${baseURL}/student/catalog">Consult Catalogs</a></li>
         <li class="dropdown active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learning Agreement <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="${pageContext.request.contextPath}/student/contracts">See Contracts</a></li>
-            <li><a href="${pageContext.request.contextPath}/student/optional_courses">Optional Courses</a></li>
+            <li><a href="${baseURL}/student/optional_courses">Optional Courses</a></li>
           </ul>
         </li>
       </ul>
-      <input id="postURL" class="hidden" value="${contextPath}/academic/student/save_optional"></input>
+      <input id="postURL" class="hidden" value="${baseURL}student/save_optional"></input>
      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${student.name}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="${pageContext.request.contextPath}/student/editAccount">Edit Account</a></li>
+            <li><a href="${baseURL}/student/editAccount">Edit Account</a></li>
       <li class="divider"></li>
             <li><a href="#">Log Out</a></li>
           </ul>

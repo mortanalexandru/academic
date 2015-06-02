@@ -27,6 +27,11 @@ public class CurriculumCoursesServiceImpl implements CurriculumCoursesService {
 		return CurriculumCoursesAdapter.adaptCurriculumCourseListToDTO(cc);
 		
 	}
+	public List<CurriculumCoursesDTO> getAllCC() {
+		List<CurriculumCourse> cc = ccDAO.getCurriculumCourses();
+		return CurriculumCoursesAdapter.adaptCurriculumCourseListToDTO(cc);
+		
+	}
 	
 	public List<StudentDTO> getStudentsByCC(String code)
 	{
