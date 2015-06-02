@@ -7,6 +7,33 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css">
 <script src="/js/plugins/jquery-2.1.3.min.js"></script>
 <script src="/js/plugins/bootstrap.js"></script>
+<script>
+ $( document ).ready(function() {
+    $('.submit_button').click( function(){
+      var ids = new Array;
+      var list = $("input.form-control").each(function(i,e) {
+        ids[$(e).attr("id")] = $(e).val();
+      });
+
+      var token = $("input[name='_csrf']").val();
+      var header = "X-CSRF-TOKEN";
+      console.log("We will send the objects", ids);
+      $.ajax({
+        type: "POST",
+        url: "propose_courses",
+        data: JSON.stringify(ids),
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader(header, token);
+        },
+        success: function(url) {
+    
+        }
+      });
+    });
+  });
+</script>
 <title>Home</title>
 </head>
 <body>
@@ -57,24 +84,24 @@
   <div class="form-group">
     <label for="exampleInputEmail1" class="col-md-4 control-label">Course name</label>
   <div class="col-md-8">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Course name">
+    <input type="text" class="form-control" id="name" placeholder="Course name">
   </div>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1" class="col-md-4 control-label">Semester</label>
   <div class="col-md-8">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Semester">
+    <input type="text" class="form-control" id="semester" placeholder="Semester">
   </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1" class="col-md-4 control-label">Description</label>
+    <label for="exampleInputPassword1" class="col-md-4 control-label">Nr. of credits</label>
   <div class="col-md-8">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description">
+    <input type="text" class="form-control" id="credits" placeholder="Credits">
   </div>
   </div>
   <div class="text-center">
-  <button type="submit" class="btn btn-default btn-primary" >Save</button>
-  <button class="btn btn-default">Cancel</button>
+  <a class="btn btn-default btn-primary submit_button" >Save</a>
+  <a class="btn btn-default">Cancel</a>
   </div>
   </div>
 </form>

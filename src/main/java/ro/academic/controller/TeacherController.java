@@ -83,20 +83,15 @@ public class TeacherController {
 		return model;
 	}
 
-	// @RequestMapping(value = UrlMappings.TEACHER_PROPOSE_COURSES, method = RequestMethod.POST)
-	// public ModelAndView postProposeCourses() {
-	// 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	// 	UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
-	// 	ModelAndView model = new ModelAndView();
-	// 	model.setViewName(ViewNames.TEACHER_PROPOSE_COURSES.getViewName());
-		
-	// 	model.addObject("username", userDetail.getUsername());
-	// 	model.addObject("teacher", userDetail.getTeacher());
-		
-	// 	ccService.getCCByTeacher(userDetail.getUser());
-	// 	return model;
-	// }
+	@RequestMapping(value = UrlMappings.TEACHER_POST_PROPOSE_COURSES, method = RequestMethod.POST)
+	public String postProposeCourses(@RequestBody String[] courses){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
+		ModelAndView model = new ModelAndView();
 
+		return "/student/catalog";
+		
+	}
 	@RequestMapping(value = UrlMappings.GET_COURSE, method = RequestMethod.GET)
 	public ModelAndView getCourse(@RequestParam(value = "code", required = true) String code, @RequestParam(value = "semester", required = true) int semester ) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

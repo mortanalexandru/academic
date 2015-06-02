@@ -17,6 +17,9 @@
   <p class="text-center">
     Cel mai jmeker site evār
   </p>
+  <a class="text-center btn btn-primary" href="login">
+    Login
+  </a>
 </div>
 </body>
 </html>

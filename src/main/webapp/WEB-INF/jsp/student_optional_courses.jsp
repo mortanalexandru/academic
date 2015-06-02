@@ -135,8 +135,8 @@
 <div class= "row">
   
   <div class="col-xs-12 text-center">
-    <button type="button" class="btn btn-primary submit_button">Submit</button>
-    <button type="button" class="btn btn-default "> Cancel</button>
+    <a class="btn btn-primary submit_button">Submit</a>
+    <a class="btn btn-default "> Cancel</a>
   </div>
 </div>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

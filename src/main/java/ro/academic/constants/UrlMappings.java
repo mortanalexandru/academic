@@ -36,10 +36,7 @@ public class UrlMappings {
 	public final static String SAVE_COURSES = "/student/save_optional";
 
 	public final static String SAVE_GRADES = "/teacher/save_grades";
-	
 
-
-
-
+	public final static String TEACHER_POST_PROPOSE_COURSES = "teacher/propose_courses";
 
 }
