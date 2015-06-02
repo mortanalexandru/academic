@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -141,69 +145,21 @@
       </tr>
     </thead>
     <tbody class='catalog'>
-      <tr class="sem1">
-        <td>
-          1
-        </td>
-        <td>
-          Operating systems
-        </td>
-        <td>
-          Radu Dragos
-        </td>
-        <td>
-          Linux
-        </td>
-        <td>
-        <select class="form-control">
-          <option value="" disabled selected>Select your option</option>
-          <option value="true">Accepted</option>
-          <option value="false">Rejected</option>
-      </select>
-        </td>
-      </tr>
-      <tr class="sem2">
-        <td>
-          2
-        </td>
-        <td>
-          Computer Networks
-        </td>
-    <td>
-          Adrian Darabant
-        </td>
-    <td>
-      Linux
-        </td>
-        <td>
-      <select class="form-control">
-        <option value="" disabled selected>Select your option</option>
-        <option value="true">Accepted</option>
-        <option value="false">Rejected</option>
-      </select>
-        </td>
-      </tr>
-      <tr class="sem3">
-        <td>
-          3
-        </td>
-        <td>
-          Aspect Oriented Programming
-        </td>
-        <td>
-          Cojocar Grigoreta
-        </td>
-        <td>
-          Java
-        </td>
-        <td>
-      <select class="form-control">
-        <option value="" disabled selected>Select your option</option>
-        <option value="true">Accepted</option>
-        <option value="false">Rejected</option>
-      </select>
-        </td>
-      </tr>
+      <c:forEach var="course" items="${courses}">
+        <tr class="sem${course.semester}">
+          <td>${course.code}</td>
+          <td>${course.name}</td>
+          <td>${course.teacher.getUser().name}</td>
+          <td>${course.credits}</td>
+          <td>
+            <select class="form-control" data-course-id="${course.code}">
+              <option value="" disabled selected>Select your option</option>
+              <option value="true">Accepted</option>
+              <option value="false">Rejected</option>
+            </select>
+          </td>
+        </tr>
+      </c:forEach>
     </tbody>
     </table>
   </div>
