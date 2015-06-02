@@ -125,6 +125,7 @@ public class TeacherController {
 	
 	@RequestMapping(value = UrlMappings.SAVE_GRADES, method = RequestMethod.POST)
 	public String approveCourses(Map<String,Boolean> courses){
+		ccService.approveCourses(courses);
 		return "";
 	}
 
