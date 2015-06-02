@@ -123,7 +123,7 @@ public class TeacherController {
 		return "/student/catalog";	
 	}
 	
-	@RequestMapping(value = UrlMappings.SAVE_GRADES, method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String approveCourses(Map<String,Boolean> courses){
 		ccService.approveCourses(courses);
 		return "";
