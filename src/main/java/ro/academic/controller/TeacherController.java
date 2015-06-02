@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ro.academic.constants.UrlMappings;
 import ro.academic.constants.ViewNames;
 import ro.academic.model.UserWrapper;
+import ro.academic.service.CourseService;
 import ro.academic.service.CurriculumCoursesService;
 import ro.academic.service.TeacherService;
 import ro.academic.service.impl.TeacherServiceImpl;
@@ -27,6 +28,9 @@ public class TeacherController {
 	
 	@Autowired
 	private CurriculumCoursesService ccService;
+	
+	@Autowired
+	private CourseService courseService;
 
 	
 	/**
@@ -42,6 +46,7 @@ public class TeacherController {
 		{
 			// courseDAO.getCourses();
 			model.setViewName(ViewNames.CHIEF_HOME.getViewName());
+			model.addObject("courses",courseService.getUnaprovedCourses());
 		}
 		else
 		{
@@ -103,9 +108,6 @@ public class TeacherController {
 		model.addObject("username", userDetail.getUsername());
 		model.addObject("teacher", userDetail.getTeacher());
 		model.addObject("students", ccService.getStudentsByCC(code));
-		
-		
-
 		return model;
 	}
 
