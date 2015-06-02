@@ -99,6 +99,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 <div>
   <h3> Grades - Course ${code}, Semester ${semester} </h3>
   <table class="table">

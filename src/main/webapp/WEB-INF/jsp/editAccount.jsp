@@ -7,6 +7,46 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.css">
 <script src="/js/plugins/jquery-2.1.3.min.js"></script>
 <script src="/js/plugins/bootstrap.js"></script>
+<style>
+.has-error{
+     border: 1px solid red;
+}
+</style>
+<script>
+ $( document ).ready(function() {
+    $('.submit_button').click( function(){
+        var ids = [];
+        $(".has-error").removeClass("has-error");
+        if(($("#password").val() != $("#password_confirmation").val()) || $("#password").val().length == 0 ) 
+        {
+            $("#password_confirmation").addClass("has-error");
+            $("#password").addClass("has-error");
+        }
+        else
+        {
+
+            // this we will make the ajax call with the ids
+            var token = $("input[name='_csrf']").val();
+            var header = "X-CSRF-TOKEN";
+            ids["password"] = $("#password").val()
+            console.log("We will send the objects", ids);
+            $.ajax({
+                type: "POST",
+                url: "edit",
+                data: JSON.stringify(ids) ,
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.setRequestHeader(header, token);
+                },
+                success: function(url) {
+                
+                }
+            });
+        } 
+    });
+  });
+</script>
 </head>
 
 <body>
@@ -56,7 +96,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
   <div class="col-md-6 col-md-offset-3">
   <form class="form-horizontal" style="padding-top:50px;">
   <div class="form-group">
@@ -66,26 +106,20 @@
 	</div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1" class="col-md-4 control-label">Old Password</label>
+    <label for="new_password" class="col-md-4 control-label">New Password</label>
 	<div class="col-md-8">
-		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-	</div>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1" class="col-md-4 control-label">New Password</label>
-	<div class="col-md-8">
-		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		<input type="password" class="form-control" id="password" placeholder="Password">
 	</div>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1" class="col-md-4 control-label">Confirm Password</label>
 	<div class="col-md-8">
-		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		<input type="password" class="form-control" id="password_confirmation" placeholder="Password">
 	</div>
   </div>
   <div class="text-center">
-	<button type="submit" class="btn btn-default btn-primary" >Save</button>
-	<button class="btn btn-default">Cancel</button>
+	   <a class="btn btn-default btn-primary submit_button" >Save</a>
+	   <a class="btn btn-default">Cancel</a>
   </div>
   </div>
 </form>

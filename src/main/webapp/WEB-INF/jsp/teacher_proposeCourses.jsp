@@ -77,7 +77,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
   <div class="col-md-6 col-md-offset-3">
   <form class="form-horizontal" style="padding-top:50px;">
