@@ -3,11 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css">
+<script src="js/plugins/jquery-2.1.3.min.js"></script>
+<script src="js/plugins/bootstrap.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
 </head>
 <body>
-s
-<p>Hello</p>
+<div class="container">
+  <h1 class="text-center">
+    Discipulus
+  </h1>
+  <p class="text-center">
+    Cel mai jmeker site evār
+  </p>
+</div>
 </body>
 </html>

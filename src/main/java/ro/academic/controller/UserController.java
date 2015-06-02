@@ -34,6 +34,15 @@ public class UserController {
 	 * @param request
 	 * @return
 	 */
+
+	@RequestMapping(value = UrlMappings.LANDING_PAGE, method = RequestMethod.GET)
+	public ModelAndView getLandingPage() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName(ViewNames.LANDING_PAGE.getViewName());
+		return model;
+
+	}
+
 	@RequestMapping(value = UrlMappings.LOGIN_URL, method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error, HttpServletRequest request) {
 		boolean hasErrors = false;

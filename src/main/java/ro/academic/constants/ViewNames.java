@@ -9,7 +9,7 @@ public enum ViewNames {
 	
 	LANDING_VIEW("teacherHome"),
 	LOGIN_VIEW("loginView"),
-	HOME_VIEW("home"),
+	LANDING_PAGE("home"),
 	EDIT_VIEW("edit"),
 	CATALOG_VIEW("catalogView"),
 	STUDENT_VIEW("studentView"),
