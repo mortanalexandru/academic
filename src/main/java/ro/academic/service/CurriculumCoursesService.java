@@ -1,6 +1,7 @@
 package ro.academic.service;
 
 import java.util.List;
+import java.util.Map;
 
 import ro.academic.dto.CurriculumCoursesDTO;
 import ro.academic.dto.StudentDTO;
@@ -11,5 +12,6 @@ public interface CurriculumCoursesService {
 	public List<CurriculumCoursesDTO> getCCByTeacher(User user);
   public List<CurriculumCoursesDTO> getAllCC();
 	public List<StudentDTO> getStudentsByCC(String code);
+	public void approveCourses(Map<String, Boolean> courses);
 	
 }

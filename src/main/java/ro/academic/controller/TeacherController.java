@@ -1,5 +1,7 @@
 package ro.academic.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -118,8 +120,12 @@ public class TeacherController {
 		UserWrapper userDetail = (UserWrapper) auth.getPrincipal();
 		ModelAndView model = new ModelAndView();
 
-		return "/student/catalog";
-		
+		return "/student/catalog";	
+	}
+	
+	@RequestMapping(value = UrlMappings.SAVE_GRADES, method = RequestMethod.POST)
+	public String approveCourses(Map<String,Boolean> courses){
+		return "";
 	}
 
 

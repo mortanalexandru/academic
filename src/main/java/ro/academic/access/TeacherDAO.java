@@ -17,4 +17,6 @@ public interface TeacherDAO {
 	 * @return
 	 */
 	public Teacher getTeacherByUser(User username);
+	
+	public Teacher getTeacherByName(String name);
 }

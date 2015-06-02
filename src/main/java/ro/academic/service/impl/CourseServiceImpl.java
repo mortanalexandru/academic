@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ro.academic.access.CourseDAO;
 import ro.academic.dto.ContractCourseDTO;
@@ -12,6 +13,7 @@ import ro.academic.model.ContractCourse;
 import ro.academic.model.Course;
 import ro.academic.service.CourseService;
 
+@Service
 public class CourseServiceImpl implements CourseService {
 
 	@Autowired

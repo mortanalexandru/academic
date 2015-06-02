@@ -1,16 +1,21 @@
 package ro.academic.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ro.academic.access.CourseDAO;
 import ro.academic.access.CurriculumCoursesDAO;
+import ro.academic.access.CurriculumDAO;
+import ro.academic.access.TeacherDAO;
 import ro.academic.adapter.CurriculumCoursesAdapter;
 import ro.academic.adapter.TeacherAdapter;
 import ro.academic.dto.CurriculumCoursesDTO;
 import ro.academic.dto.StudentDTO;
 import ro.academic.dto.TeacherDTO;
+import ro.academic.model.Course;
 import ro.academic.model.CurriculumCourse;
 import ro.academic.model.Teacher;
 import ro.academic.model.User;
@@ -21,6 +26,15 @@ public class CurriculumCoursesServiceImpl implements CurriculumCoursesService {
 
 	@Autowired
 	private CurriculumCoursesDAO ccDAO;
+	
+	@Autowired
+	private CourseDAO courseDAO;
+	
+	@Autowired
+	private CurriculumDAO curriculumDAO;
+	
+	@Autowired
+	private TeacherDAO teacherDAO;
 	
 	public List<CurriculumCoursesDTO> getCCByTeacher(User user) {
 		List<CurriculumCourse> cc = ccDAO.getCurriculumCoursesByTeacher(user);
@@ -37,6 +51,21 @@ public class CurriculumCoursesServiceImpl implements CurriculumCoursesService {
 	{
 		List<CurriculumCourse> cc = ccDAO.getStudentsByCurriculumCourses(code);
 		return CurriculumCoursesAdapter.adaptCurriculumCourseListToStudentDTO(cc);
+	}
+	@Override
+	public void approveCourses(Map<String, Boolean> courses) {
+		for(String code : courses.keySet()){
+			Course c = courseDAO.getCourseByCode(code);
+			if(courses.get(code)){
+				CurriculumCourse course = new CurriculumCourse();
+				course.setCourse(c);
+				course.setCurriculum(curriculumDAO.getCurriculumForSemester(c.getSemester()));
+				course.setTeacher(c.getTeacher());
+				course.setSemester(c.getSemester());
+			}else{
+				courseDAO.deleteCourse(c);
+			}
+		}
 	}
 
 
