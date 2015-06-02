@@ -9,6 +9,7 @@
 <script src="../js/plugins/jquery-2.1.3.min.js"></script>
 <script src="../js/plugins/bootstrap.js"></script>
 <script>
+$( document ).ready(function() {
   function myFunction(checkbox) 
   {
     var valoare = checkbox.getAttribute("value");
@@ -30,6 +31,36 @@
       $(".catalog tr").show();
     }
   }
+   $('.submit_button').click( function(){
+      var ids = [];
+      var list = $("select").each(function(i,e) {
+        if($(e).val())
+        {
+          ids[$(e).data("course-id")] = $(e).val()
+        }
+      });
+  
+      // this we will make the ajax call with the ids
+      var token = $("input[name='_csrf']").val();
+      var header = "X-CSRF-TOKEN";
+      console.log("We will send the objects", ids);
+      $.ajax({
+        type: "POST",
+        url: "teacher/aprove_courses",
+        data: JSON.stringify(ids),
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader(header, token);
+        },
+        success: function(url) {
+          window.location = "aprove_courses";
+        }
+    });
+      
+      
+  });
+ });
 </script>
 </head>
 <body>
@@ -149,7 +180,7 @@
         <tr class="sem${course.semester}">
           <td>${course.code}</td>
           <td>${course.name}</td>
-          <td>${course.teacher.getUser().name}</td>
+          <td>${course.getTeacher()}</td>
           <td>${course.credits}</td>
           <td>
             <select class="form-control" data-course-id="${course.code}">
@@ -164,9 +195,9 @@
     </table>
   </div>
     <div class="text-center">
-  <button type="submit" class="btn btn-default btn-primary" >Save</button>
-  <button class="btn btn-default">Cancel</button>
-  </div>
+      <a class="btn btn-default btn-primary submit_button" >Save</button>
+      <a class="btn btn-default">Cancel</button>
+    </div>
 </div>
 </div>
 </body>

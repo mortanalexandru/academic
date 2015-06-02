@@ -123,11 +123,8 @@ public class TeacherController {
 		return "/student/catalog";	
 	}
 	
-<<<<<<< HEAD
-	@RequestMapping(value = "", method = RequestMethod.POST)
-=======
+
 	@RequestMapping(value = UrlMappings.APPROVE_COURSES, method = RequestMethod.POST)
->>>>>>> origin/development
 	public String approveCourses(Map<String,Boolean> courses){
 		ccService.approveCourses(courses);
 		return "";
