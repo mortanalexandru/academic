@@ -9,4 +9,5 @@ public interface CurriculumCoursesDAO {
 	public List<CurriculumCourse> getCurriculumCourses();
 	public List<CurriculumCourse> getCurriculumCoursesByTeacher(User user);
 	public List<CurriculumCourse> getStudentsByCurriculumCourses(String code);
+	public void saveCurriculumCourse(List<CurriculumCourse> courses);
 }

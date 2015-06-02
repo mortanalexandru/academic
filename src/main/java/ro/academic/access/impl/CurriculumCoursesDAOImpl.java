@@ -65,10 +65,14 @@ public class CurriculumCoursesDAOImpl implements CurriculumCoursesDAO {
 		
 	}
 	
-	public void saveCurriculumCourse(CurriculumCourse course){
+	
+	
+	public void saveCurriculumCourse(List<CurriculumCourse> courses){
 		final Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(course);
+		for(CurriculumCourse course : courses){
+			session.save(course);
+		}
 		session.getTransaction().commit();
 		session.close();
 		

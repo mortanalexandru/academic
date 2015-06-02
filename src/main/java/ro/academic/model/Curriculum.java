@@ -40,21 +40,21 @@ public class Curriculum {
 	}
 
 	@Column(name = "startSem", length = 11)
-	public int getStartYear() {
+	public int getStartSem() {
 		return startSem;
 	}
 
-	public void setStartYear(int startYear) {
-		this.startSem = startYear;
+	public void setStartSem(int startSem) {
+		this.startSem = startSem;
 	}
 
 	@Column(name = "endSem", length = 11)
-	public int getEndYear() {
+	public int getEndSem() {
 		return endSem;
 	}
 
-	public void setEndYear(int endYear) {
-		this.endSem = endYear;
+	public void setEndSem(int endSem) {
+		this.endSem = endSem;
 	}
 
     @ManyToOne

@@ -1,5 +1,6 @@
 package ro.academic.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -52,8 +53,9 @@ public class CurriculumCoursesServiceImpl implements CurriculumCoursesService {
 		List<CurriculumCourse> cc = ccDAO.getStudentsByCurriculumCourses(code);
 		return CurriculumCoursesAdapter.adaptCurriculumCourseListToStudentDTO(cc);
 	}
-	@Override
+	
 	public void approveCourses(Map<String, Boolean> courses) {
+		List<CurriculumCourse> list = new ArrayList<CurriculumCourse>();
 		for(String code : courses.keySet()){
 			Course c = courseDAO.getCourseByCode(code);
 			if(courses.get(code)){
@@ -62,10 +64,11 @@ public class CurriculumCoursesServiceImpl implements CurriculumCoursesService {
 				course.setCurriculum(curriculumDAO.getCurriculumForSemester(c.getSemester()));
 				course.setTeacher(c.getTeacher());
 				course.setSemester(c.getSemester());
-			}else{
-				courseDAO.deleteCourse(c);
+				course.setDescription("");
+				list.add(course);
 			}
 		}
+		ccDAO.saveCurriculumCourse(list);
 	}
 
 
