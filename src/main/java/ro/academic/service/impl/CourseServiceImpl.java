@@ -23,7 +23,7 @@ public class CourseServiceImpl implements CourseService {
 	public List<ContractCourseDTO> getUnaprovedCourses() {
 		List<ContractCourseDTO> unaprovedCourses = new ArrayList<ContractCourseDTO>();
 		for(Course course : courseDAO.getCourses()){
-			if(!course.getCurriculumCourses().isEmpty()){
+			if(course.getCurriculumCourses().isEmpty() && course.isIsOptional()){
 				ContractCourseDTO courseDTO = new ContractCourseDTO();
 				courseDTO.setCode(course.getCode());
 				courseDTO.setCredits(course.getCredits());
