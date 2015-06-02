@@ -38,4 +38,5 @@ public class CourseDAOImpl {
 		session.close();
 		return resultAsList;
 	}
+	
 }
