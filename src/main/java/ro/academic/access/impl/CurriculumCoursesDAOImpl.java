@@ -76,4 +76,6 @@ public class CurriculumCoursesDAOImpl implements CurriculumCoursesDAO {
 		
 	}
 	
+	}
+	
 }

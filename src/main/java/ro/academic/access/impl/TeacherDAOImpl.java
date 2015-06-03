@@ -46,8 +46,16 @@ public class TeacherDAOImpl implements TeacherDAO {
 		return resultAsList.get(0);
 	}
 	
-	public void saveGrades(User user, int grade)
-	{
+	public Teacher getTeacherByName(String name){
+		final Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		final Criteria criteria = session.createCriteria(Teacher.class);
+		criteria.add(Restrictions.eq("name", name));
+		List<Teacher> resultAsList = (List<Teacher>) (criteria.list());
 		
+		session.getTransaction().commit();
+		session.close();
+		return resultAsList.get(0);
 	}
 }

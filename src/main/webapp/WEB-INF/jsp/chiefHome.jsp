@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -5,6 +9,7 @@
 <script src="../js/plugins/jquery-2.1.3.min.js"></script>
 <script src="../js/plugins/bootstrap.js"></script>
 <script>
+$( document ).ready(function() {
   function myFunction(checkbox) 
   {
     var valoare = checkbox.getAttribute("value");
@@ -26,6 +31,36 @@
       $(".catalog tr").show();
     }
   }
+   $('.submit_button').click( function(){
+      var ids = {};
+      var list = $("select").each(function(i,e) {
+        if($(e).val())
+        {
+          ids[$(e).data("course-id")] = $(e).val()
+        }
+      });
+  
+      // this we will make the ajax call with the ids
+      var token = $("input[name='_csrf']").val();
+      var header = "X-CSRF-TOKEN";
+      console.log("We will send the objects", ids);
+      $.ajax({
+        type: "POST",
+        url: "teacher/aprove_courses",
+        data: JSON.stringify(ids),
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader(header, token);
+        },
+        success: function(url) {
+          window.location = "teacher";
+        }
+    });
+      
+      
+  });
+ });
 </script>
 </head>
 <body>
@@ -66,6 +101,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 <div class="row">
   <div class="col-md-3 text-center" >
   <div class="checkbox">
@@ -141,76 +177,28 @@
       </tr>
     </thead>
     <tbody class='catalog'>
-      <tr class="sem1">
-        <td>
-          1
-        </td>
-        <td>
-          Operating systems
-        </td>
-        <td>
-          Radu Dragos
-        </td>
-        <td>
-          Linux
-        </td>
-        <td>
-        <select class="form-control">
-          <option value="" disabled selected>Select your option</option>
-          <option value="true">Accepted</option>
-          <option value="false">Rejected</option>
-      </select>
-        </td>
-      </tr>
-      <tr class="sem2">
-        <td>
-          2
-        </td>
-        <td>
-          Computer Networks
-        </td>
-    <td>
-          Adrian Darabant
-        </td>
-    <td>
-      Linux
-        </td>
-        <td>
-      <select class="form-control">
-        <option value="" disabled selected>Select your option</option>
-        <option value="true">Accepted</option>
-        <option value="false">Rejected</option>
-      </select>
-        </td>
-      </tr>
-      <tr class="sem3">
-        <td>
-          3
-        </td>
-        <td>
-          Aspect Oriented Programming
-        </td>
-        <td>
-          Cojocar Grigoreta
-        </td>
-        <td>
-          Java
-        </td>
-        <td>
-      <select class="form-control">
-        <option value="" disabled selected>Select your option</option>
-        <option value="true">Accepted</option>
-        <option value="false">Rejected</option>
-      </select>
-        </td>
-      </tr>
+      <c:forEach var="course" items="${courses}">
+        <tr class="sem${course.semester}">
+          <td>${course.code}</td>
+          <td>${course.name}</td>
+          <td>${course.getTeacher()}</td>
+          <td>${course.credits}</td>
+          <td>
+            <select class="form-control" data-course-id="${course.code}">
+              <option value="" disabled selected>Select your option</option>
+              <option value="true">Accepted</option>
+              <option value="false">Rejected</option>
+            </select>
+          </td>
+        </tr>
+      </c:forEach>
     </tbody>
     </table>
   </div>
     <div class="text-center">
-  <button type="submit" class="btn btn-default btn-primary" >Save</button>
-  <button class="btn btn-default">Cancel</button>
-  </div>
+      <a class="btn btn-default btn-primary submit_button" >Save</button>
+      <a class="btn btn-default">Cancel</button>
+    </div>
 </div>
 </div>
 </body>

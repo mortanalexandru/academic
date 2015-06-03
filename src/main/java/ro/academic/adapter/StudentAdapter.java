@@ -37,7 +37,7 @@ public class StudentAdapter {
 		studentDto.setCourses(adaptContractCourseListToDTO(courses));
 		studentDto.setName(student.getName());
 		studentDto.setGroup(group.getName());
-		studentDto.setCurriculum(curriculum.getStartYear()+"-"+curriculum.getEndYear());
+		studentDto.setCurriculum(curriculum.getStartSem()+"-"+curriculum.getEndSem());
 		studentDto.setSpecialization(specialization.getName());
 		studentDto.setDepartment(department.getTitle());
 		studentDto.setUser(student.getUser());

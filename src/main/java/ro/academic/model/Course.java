@@ -120,7 +120,7 @@ public class Course {
 		this.teachersSpecialized = teachersSpecialized;
 	}
 
-	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY) 
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
 	public Set<CurriculumCourse> getCurriculumCourses() {
 		return curriculumCourses;
 	}

@@ -39,4 +39,6 @@ public class UrlMappings {
 
 	public final static String TEACHER_POST_PROPOSE_COURSES = "teacher/propose_courses";
 
+	public final static String APPROVE_COURSES = "teacher/aprove_courses";
+
 }
