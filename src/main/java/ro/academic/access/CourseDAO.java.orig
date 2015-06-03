@@ -1,0 +1,17 @@
+package ro.academic.access;
+
+import java.util.List;
+
+import ro.academic.model.Course;
+
+public interface CourseDAO {
+
+	public List<Course> getCourses();
+	
+<<<<<<< HEAD
+=======
+	public Course getCourseByCode(String code);
+	
+	public void deleteCourse(Course course);
+>>>>>>> 7062230ec94e09d1bebbcc91678f2a83f1ba294d
+}
